@@ -7,140 +7,140 @@ function HuaqQR() {
         <div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol1"
+                value="https://smigc.vercel.app/#/HuaqSymbol1"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol2"
+                value="https://smigc.vercel.app/#/HuaqSymbol2"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol3"
+                value="https://smigc.vercel.app/#/HuaqSymbol3"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol4"
+                value="https://smigc.vercel.app/#/HuaqSymbol4"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol5"
+                value="https://smigc.vercel.app/#/HuaqSymbol5"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol6"
+                value="https://smigc.vercel.app/#/HuaqSymbol6"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol7"
+                value="https://smigc.vercel.app/#/HuaqSymbol7"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol8"
+                value="https://smigc.vercel.app/#/HuaqSymbol8"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol9"
+                value="https://smigc.vercel.app/#/HuaqSymbol9"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol10"
+                value="https://smigc.vercel.app/#/HuaqSymbol10"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol11"
+                value="https://smigc.vercel.app/#/HuaqSymbol11"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol12"
+                value="https://smigc.vercel.app/#/HuaqSymbol12"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol13"
+                value="https://smigc.vercel.app/#/HuaqSymbol13"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol14"
+                value="https://smigc.vercel.app/#/HuaqSymbol14"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol15"
+                value="https://smigc.vercel.app/#/HuaqSymbol15"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol16"
+                value="https://smigc.vercel.app/#/HuaqSymbol16"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol17"
+                value="https://smigc.vercel.app/#/HuaqSymbol17"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol18"
+                value="https://smigc.vercel.app/#/HuaqSymbol18"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol19"
+                value="https://smigc.vercel.app/#/HuaqSymbol19"
                 size={300}
                 fgColor="#000"
             />
             </div>
             <div>
             <QRCode
-                value="https://cultural-change-psi.vercel.app/#/HuaqSymbol20"
+                value="https://smigc.vercel.app/#/HuaqSymbol20"
                 size={300}
                 fgColor="#000"
             />
