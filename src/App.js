@@ -34,6 +34,27 @@ import { TablaMuseoMejorT } from "./TabaMuseoMejorT";
 import { Huaquero } from "./Huaquero";
 import { TematicaMuseo } from "./TematicaMuseo";
 import { TematicaMuseo2 } from "./TematicaMuseo2";
+import { HuaqSymbol1 } from "./HuaqSymbol1";
+import { HuaqSymbol2 } from "./HuaqSymbol2";
+import { HuaqSymbol3 } from "./HuaqSymbol3";
+import { HuaqSymbol4 } from "./HuaqSymbol4";
+import { HuaqSymbol5 } from "./HuaqSymbol5";
+import { HuaqSymbol6 } from "./HuaqSymbol6";
+import { HuaqSymbol7 } from "./HuaqSymbol7";
+import { HuaqSymbol8 } from "./HuaqSymbol8";
+import { HuaqSymbol9 } from "./HuaqSymbol9";
+import { HuaqSymbol10 } from "./HuaqSymbol10";
+import { HuaqSymbol11 } from "./HuaqSymbol11";
+import { HuaqSymbol12 } from "./HuaqSymbol12";
+import { HuaqSymbol13 } from "./HuaqSymbol13";
+import { HuaqSymbol14 } from "./HuaqSymbol14";
+import { HuaqSymbol15 } from "./HuaqSymbol15";
+import { HuaqSymbol16 } from "./HuaqSymbol16";
+import { HuaqSymbol17 } from "./HuaqSymbol17";
+import { HuaqSymbol18 } from "./HuaqSymbol18";
+import { HuaqSymbol19 } from "./HuaqSymbol19";
+import { HuaqSymbol20 } from "./HuaqSymbol20";
+import { HuaqQR } from "./HuaqQR/index.js";
 
 function App() {
   return (
@@ -79,8 +100,32 @@ function App() {
             <Route path="/gananMuseo" element={<GananMuseo historia={1} />} />
             <Route path="/museoTabla" element={<MuseoTabla />} />
             <Route path="/museoTablaMejorT" element={<TablaMuseoMejorT />} />
-            <Route path="/tematicaMuseo" element={<TematicaMuseo />} />
+            <Route path="/tematicaMuseo" element={<TematicaMuseo />} /> 
             <Route path="/tematicaMuseo2" element={<TematicaMuseo2 />} />
+
+            <Route path="/HuaqSymbol1" element={<HuaqSymbol1 />} />
+            <Route path="/HuaqSymbol2" element={<HuaqSymbol2 />} />
+            <Route path="/HuaqSymbol3" element={<HuaqSymbol3 />} />
+            <Route path="/HuaqSymbol4" element={<HuaqSymbol4 />} />
+            <Route path="/HuaqSymbol5" element={<HuaqSymbol5 />} />
+            <Route path="/HuaqSymbol6" element={<HuaqSymbol6 />} />
+            <Route path="/HuaqSymbol7" element={<HuaqSymbol7 />} />
+            <Route path="/HuaqSymbol8" element={<HuaqSymbol8 />} />
+            <Route path="/HuaqSymbol9" element={<HuaqSymbol9 />} />
+            <Route path="/HuaqSymbol10" element={<HuaqSymbol10 />} />
+            <Route path="/HuaqSymbol11" element={<HuaqSymbol11 />} />
+            <Route path="/HuaqSymbol12" element={<HuaqSymbol12 />} />
+            <Route path="/HuaqSymbol13" element={<HuaqSymbol13 />} />
+            <Route path="/HuaqSymbol14" element={<HuaqSymbol14 />} />
+            <Route path="/HuaqSymbol15" element={<HuaqSymbol15 />} />
+            <Route path="/HuaqSymbol16" element={<HuaqSymbol16 />} />
+            <Route path="/HuaqSymbol17" element={<HuaqSymbol17 />} />
+            <Route path="/HuaqSymbol18" element={<HuaqSymbol18 />} />
+            <Route path="/HuaqSymbol19" element={<HuaqSymbol19 />} />
+            <Route path="/HuaqSymbol20" element={<HuaqSymbol20 />} />
+            
+            <Route path="/HuaqQR" element={<HuaqQR />} />
+
           </Routes>
         </MyContextProvider>
       </HashRouter>
