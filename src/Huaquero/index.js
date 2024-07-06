@@ -258,7 +258,6 @@ function Huaquero(props) {
         }
     };
 
-
     const handleClick = (event) => {
         // Verificar si userInput contiene caracteres no válidos
         event.target.classList.add('error-animatin');
@@ -267,7 +266,6 @@ function Huaquero(props) {
             // event.target.value = ""; // No es necesario para un botón
         }, 600); // 0.5 segundos
     };
-
 
     return (
         <div>
@@ -304,7 +302,6 @@ function Huaquero(props) {
                     <button key={0} className="image-button" onClick={() => updateSymbol("Symbol2")}>
                         <img src={getSymbolImage(1)} alt={`Simbolo ${1}`} />
                     </button>
-
                     <button key={13} className="image-button" onClick={handleClick}>
                         <img src={getSymbolImage(14)} alt={`Simbolo ${14}`} />
                     </button>
