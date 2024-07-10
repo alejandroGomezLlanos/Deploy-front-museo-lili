@@ -367,6 +367,7 @@ const Minijuego = (props) => {
     }
     setAnagramas(nuevosAnagramas);
   }
+  
   const cambiarEstados = (positionInImageList) => {
     if (positionInImageList < 4) {
       switch (positionInImageList) {
@@ -475,6 +476,7 @@ const Minijuego = (props) => {
 
   return (
     <>
+    <Header></Header>
       <Contexto
         titulo="Descubre los símbolos"
         parrafo="Ten cuidado, si descubres símbolos diferentes a los que el Huaquero te mostró, perderás los que has descubierto"
