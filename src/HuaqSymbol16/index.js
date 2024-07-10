@@ -10,14 +10,26 @@ function HuaqSymbol16() {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <img src={simbolo} alt="Confirmation" style={{ width: '200px', height: '200px' }} />
-            <h2>¿Estás seguro de que quieres escoger este símbolo?</h2>
-            <button onClick={handleContinue} style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
-                Continuar
+        <>
+          <p className="parrafoInferior margen">
+            ¿Estás seguro de que quieres escoger este símbolo?
+          </p>
+          <div className="fondoAmarillo">
+            <img
+              src={simbolo}
+              alt="Confirmation"
+              style={{ width: "200px", height: "200px" }}
+            />
+            <button
+              className="btnContinuar"
+              onClick={handleContinue}
+              style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}
+            >
+              Continuar
             </button>
-        </div>
-    );
+          </div>
+        </>
+      );
 };
 
 export { HuaqSymbol16 };
