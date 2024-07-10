@@ -4,7 +4,6 @@ import "./HuaqCamera.css";
 
 function HuaqCamera() {
   const [scanResult, setScanResult] = useState("");
-  const [key, setKey] = useState(0);
 
   const handleScan = (data) => {
     if (data) {
@@ -25,25 +24,6 @@ function HuaqCamera() {
     overflow: "hidden", // Oculta cualquier contenido que se desborde del contenedor
   };
 
-  const videoConstraints = {
-    facingMode: "rear", // Especifica que se use la cámara trasera
-  };
-
-  const reloadScanner = () => {
-    setKey(prevKey => prevKey + 1);
-};
-
-const scannerOptions = {
-    key: key, // Utiliza la clave para forzar la recarga
-    constraints: {
-        video: videoConstraints
-    },
-    delay: 300,
-    style: previewStyle,
-    onError: handleError,
-    onScan: handleScan
-};
-
   return (
     <div>
       <div>
@@ -53,7 +33,14 @@ const scannerOptions = {
       </div>
 
       <div className="fondoAmarillo">
-      <QrScanner {...scannerOptions} />
+        <QrScanner
+          key="environment"
+          delay={301}
+          style={previewStyle}
+          onError={handleError}
+          onScan={handleScan}
+          constraints={{ facingMode: "environment" }}
+        />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}
         </p>
