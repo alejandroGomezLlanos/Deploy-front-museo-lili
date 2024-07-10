@@ -25,7 +25,6 @@ function HuaqCamera() {
   };
 
   const videoConstraints = {
-    key: "environment",
     facingMode: "environment", // Especifica que se use la cámara trasera
   };
 
@@ -39,8 +38,7 @@ function HuaqCamera() {
 
       <div className="fondoAmarillo">
         <QrScanner
-          key="environment"
-          delay={301}
+          delay={300}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
