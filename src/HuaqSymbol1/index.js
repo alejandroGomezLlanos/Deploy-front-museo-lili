@@ -1,17 +1,68 @@
-import React from "react";
 import simbolo from "../Traductor/simbolos/simbolo1.png";
 import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import axios from "axios";
 
-function HuaqSymbol1() {
+function HuaqSymbol1({ historia }) {
+  const [rightSymbol, setRightSymbol] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+
   const navigate = useNavigate();
 
-  const handleContinue = () => {
-    navigate("/juego/huaquero"); // Ruta a la que se redirige
+  const updateSymbol = async (symbolName) => {
+    try {
+      const response = await axios.patch(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode",
+        { symbolName, found: true }
+      );
+      console.log(`Symbol ${symbolName} updated successfully`);
+    } catch (error) {
+      console.error(`Error updating symbol ${symbolName}:`, error);
+    }
+  };
+
+  useEffect(() => {
+    checkHistory(historia);
+  }, [historia]);
+
+  function checkHistory(historia) {
+    console.log(historia);
+    let rightsymb = false;
+    if (historia === 1) {
+      rightsymb = false;
+    } else if (historia === 2) {
+      rightsymb = true;
+    } else if (historia === 3) {
+      rightsymb = false;
+    } else if (historia === 4) {
+      rightsymb = false;
+    } else if (historia === 5) {
+      rightsymb = false;
+    } else {
+      console.warn("Unhandled history case: ", historia);
+    }
+    setRightSymbol(rightsymb);
+  }
+
+  const handleButtonClick = () => {
+    const isCorrect = rightSymbol;
+    if (isCorrect) {
+      updateSymbol("Symbol1");
+      setPopupMessage("Símbolo Correcto! Serás redirigido...");
+    } else {
+      setPopupMessage("Símbolo Incorrecto! Serás redirigido...");
+    }
+    setShowPopup(true);
+    setTimeout(() => {
+      navigate("/juego/huaquero");
+    }, 5000); // Redirigir después de 3 segundos
   };
 
   return (
-    <>
+    <div>
       <p className="parrafoInferior margen">
         ¿Estás seguro de que quieres escoger este símbolo?
       </p>
@@ -23,13 +74,19 @@ function HuaqSymbol1() {
         />
         <button
           className="btnContinuar"
-          onClick={handleContinue}
+          onClick={handleButtonClick}
           style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}
         >
           Continuar
         </button>
+
+        {showPopup && (
+          <div className="popup">
+            <p className="parrafoInferior margen">{popupMessage}</p>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
 
