@@ -24,6 +24,11 @@ function HuaqCamera() {
     overflow: "hidden", // Oculta cualquier contenido que se desborde del contenedor
   };
 
+  const videoConstraints = {
+    key: "environment",
+    facingMode: "environment", // Especifica que se use la cámara trasera
+  };
+
   return (
     <div>
       <div>
@@ -39,7 +44,7 @@ function HuaqCamera() {
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          constraints={{ facingMode: "environment" }}
+          constrains={videoConstraints}
         />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}
