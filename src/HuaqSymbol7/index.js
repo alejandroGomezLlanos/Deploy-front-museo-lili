@@ -1,5 +1,5 @@
 import React from 'react';
-import simbolo1 from "../Traductor/simbolos/simbolo7.png";
+import simbolo from "../Traductor/simbolos/simbolo7.png";
 import { useNavigate } from "react-router-dom";
 
 function HuaqSymbol7() {
@@ -10,14 +10,26 @@ function HuaqSymbol7() {
     };
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <img src={simbolo1} alt="Confirmation" style={{ width: '200px', height: '200px' }} />
-            <h2>¿Estás seguro de que quieres escoger este símbolo?</h2>
-            <button onClick={handleContinue} style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
-                Continuar
+        <>
+          <p className="parrafoInferior margen">
+            ¿Estás seguro de que quieres escoger este símbolo?
+          </p>
+          <div className="fondoAmarillo">
+            <img
+              src={simbolo}
+              alt="Confirmation"
+              style={{ width: "200px", height: "200px" }}
+            />
+            <button
+              className="btnContinuar"
+              onClick={handleContinue}
+              style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}
+            >
+              Continuar
             </button>
-        </div>
-    );
+          </div>
+        </>
+      );
 };
 
 export { HuaqSymbol7 };
