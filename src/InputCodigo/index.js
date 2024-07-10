@@ -9,7 +9,6 @@ import { EnviandoCarga } from "../EnviandoCarga";
 import { ErrorCarga } from "../ErrorCarga";
 import { SentInformacion } from "../SentInformacion";
 
-
 function InputCodigo() {
   const [inputValue, setInputValue] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -79,7 +78,9 @@ function InputCodigo() {
 
   const fetchRoomCode = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       console.log("Full Response:", response.data); // Log entire response
       if (response.data.length > 0 && response.data[0].code) {
         setRoomCode(response.data[0].code); // Set the room code state
@@ -104,12 +105,11 @@ function InputCodigo() {
     if (value.length === 4 && value.toUpperCase() === roomCode) {
       setShowModal(true);
     } else if (value.length === 4) {
-      event.target.classList.add('invalid-code');
+      event.target.classList.add("invalid-code");
       setTimeout(() => {
-        event.target.classList.remove('invalid-code');
+        event.target.classList.remove("invalid-code");
         event.target.value = "";
       }, 600); // 0.5 segundos
-
     }
 
     // Comprobar si los campos requeridos están completos
@@ -296,7 +296,8 @@ function InputCodigo() {
         onChange={handleInputChange}
         maxLength={4}
       />
-      <img src={museolili} alt="Logo del museo lili" />
+      <img src={museolili} alt="Logo del museo lili"/>
+      
       {/* Modal para el registro de datos */}
       {isLoading ? (
         <EnviandoCarga />

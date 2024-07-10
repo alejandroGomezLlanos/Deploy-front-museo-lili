@@ -9,8 +9,8 @@ import lupa from "./resources/lupa.png";
 import lupahover from "./resources/lupahover.png";
 import { Cronometro } from "../Header/Cronometro";
 import TopNavegation from "./resources/TopNavigation.png";
-import SonidodePuntos from './audios/sonidopuntos.mp3';
-import useSound from 'use-sound';
+import SonidodePuntos from "./audios/sonidopuntos.mp3";
+import useSound from "use-sound";
 import { update } from "lodash";
 import { useNavigate } from "react-router-dom";
 
@@ -109,7 +109,9 @@ function Mapa(props) {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -138,7 +140,9 @@ function Mapa(props) {
 
   const findNFilterUsers = async (roomCode) => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -270,7 +274,9 @@ function Mapa(props) {
 
   const getUserData = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users"); // Adjusted the endpoint
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      ); // Adjusted the endpoint
       const users = response.data;
       const user = users.find((u) => u._id === userId); // Assuming each user object has an _id field
 
@@ -319,9 +325,9 @@ function Mapa(props) {
   };
 
   return (
-    <><Header></Header>
+    <>
+      <Header></Header>
       <div className="position_map">
-
         <h2 className="titulosGuia">Símbolos localizados</h2>
         <div className="fondoAmarillo">
           <div className="contenedorImagen">
@@ -340,12 +346,13 @@ function Mapa(props) {
               </div>
             ) : (
               <div
-                className={`web ${(ubicacion === 1 && "animacionweb1") ||
+                className={`web ${
+                  (ubicacion === 1 && "animacionweb1") ||
                   (ubicacion === 2 && "animacionweb2") ||
                   (ubicacion === 3 && "animacionweb3") ||
                   (ubicacion === 4 && "animacionweb4") ||
                   (ubicacion === 5 && "animacionweb5")
-                  }`}
+                }`}
               >
                 <img src={pin} alt="Pin" />
               </div>

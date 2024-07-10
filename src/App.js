@@ -56,6 +56,7 @@ import { HuaqSymbol19 } from "./HuaqSymbol19";
 import { HuaqSymbol20 } from "./HuaqSymbol20";
 import { HuaqQR } from "./HuaqQR/index.js";
 import { HuaqCamera } from "./HuaqCamera/index.js";
+import { TimeTest } from "./TimeTest/index.js";
 
 function App() {
   return (
@@ -128,6 +129,7 @@ function App() {
             <Route path="/HuaqQR" element={<HuaqQR />} />
             
             <Route path="/HuaqCamera" element={<HuaqCamera />} />
+            <Route path="/TimeTest" element={<TimeTest />} />
 
           </Routes>
         </MyContextProvider>

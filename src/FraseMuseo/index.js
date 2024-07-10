@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./fraseMuseo.css";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -594,6 +594,41 @@ function FraseMuseo({ historia }) {
     pair4Matched,
   ]);
 
+  const [time, setTime] = useState(10);
+  const intervalRef = useRef(null);
+
+  const fetchTime = async () => {
+    try {
+      // Obtener el código de la sala
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/time"
+      );
+      setTime(response.data[0].time);
+      
+
+      if (time === 1) {
+        clearInterval(intervalRef.current);
+      }
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  };
+
+  useEffect(() => {
+    // Obtener datos de la sala inmediatamente cuando el componente se monta
+    fetchTime();
+
+    // Establecer un intervalo para obtener datos
+    intervalRef.current = setInterval(fetchTime, 10 * 50);
+    console.log(time)
+
+    // Limpiar el intervalo cuando el componente se desmonta
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, [time]);
+
+  
   return (
     <DndProvider backend={HTML5Backend}>
       {showModal && (
@@ -990,7 +1025,7 @@ function FraseMuseo({ historia }) {
             src={cronometro}
             alt="Cronometro"
           />
-          <div className="txtCronometro">Tiempo {formatTime(timeLeft)}</div>
+          <div className="txtCronometro">Tiempo {formatTime(time)}</div>
         </div>
       )}
 
