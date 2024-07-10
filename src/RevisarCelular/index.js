@@ -4,13 +4,28 @@ import celular from "./resource/Celular.png";
 import superder from "../FraseMuseo/resource/supder.png";
 import infeizq from "../FraseMuseo/resource/infeizq.png";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+
 
 function RevisarCelular() {
   const navigate = useNavigate();
 
+  const updateTime = async (time) => {
+    try {
+      const response = await axios.patch(
+        "https://testdeploy-production-9d97.up.railway.app/time",
+        { time: 600 }
+      );
+      console.log(`Time updated successfully to ${time}`);
+    } catch (error) {
+      console.error(`Error updating time ${time}:`, error);
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       handleSubmit();
+      updateTime();
     }, 15000); // 15,000 milisegundos = 15 segundos
 
     return () => {
@@ -21,6 +36,8 @@ function RevisarCelular() {
   const handleSubmit = (e) => {
     navigate("/fraseMuseo");
   };
+
+  
 
   return (
     <div className="cont-infocel">
