@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./resources/induccion.css";
 import video from "./resources/induccion.mp4";
+import FondoRoles from "./resources/fondo1.png";
+import "./induccion.css"
 
-function Induccion() {
+function MuseoInduccion() {
   const navigate = useNavigate();
 
   const handleVideoEnd = () => {
@@ -11,17 +12,17 @@ function Induccion() {
   };
 
   return (
-    <div className="container-animacion-museo">
+    <div className="fondo" style={{ backgroundImage: `url(${FondoRoles})` }}>
       <video
         className="video-content"
         controls // Controles ya que no deja reproducir sin una interaccion
         autoPlay
         onEnded={handleVideoEnd}
         src={video}
-        type="/animacionMuseo"
+        type="video/mp4"
       />
     </div>
   );
 }
 
-export { Induccion };
+export { MuseoInduccion };

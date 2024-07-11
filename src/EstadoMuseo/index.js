@@ -12,7 +12,6 @@ import AntropologoLogoNo from "./resources/AntropologoNo.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 function EstadoMuseo() {
   // Define el estado para cada logo y nombre.
   const [guia, setGuia] = useState(false);
@@ -34,7 +33,6 @@ function EstadoMuseo() {
   const [userCount, setUserCount] = useState(0);
 
   const intervalRef = useRef(null);
-
 
   useEffect(() => {
     let intervalId;
@@ -75,7 +73,9 @@ function EstadoMuseo() {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -92,11 +92,15 @@ function EstadoMuseo() {
   const fetchRoomData = async () => {
     try {
       // Obtener el código de la sala
-      const roomResponse = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const roomResponse = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       setRoomCode(roomResponse.data[0].code);
 
       // Obtener el recuento de usuarios
-      const userResponse = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+      const userResponse = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      );
       const users = userResponse.data;
       const count = users.filter((user) => user.codigoSala === roomCode).length;
       setUserCount(count);
@@ -127,7 +131,9 @@ function EstadoMuseo() {
   const findNFilterUsers = async (roomCode) => {
     console.log("Looking for users with roomCode: ", roomCode);
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -182,7 +188,6 @@ function EstadoMuseo() {
     >
       <div className="container-roles">
         <h2 className="titulo-roles">Roles seleccionados</h2>
-        <button onClick={() => findNFilterUsers()}>Check Users</button>
         <div className="grid-logos">
           <div className="logo-container" onClick={() => setGuia(!guia)}>
             <img src={guia ? GuiaLogo : GuiaLogoNo} alt="Logo Guia" />

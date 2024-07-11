@@ -1,8 +1,7 @@
-.container-animacion-museo {
+.fondo {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: url("./induccion.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

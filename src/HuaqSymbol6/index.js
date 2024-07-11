@@ -1,23 +1,93 @@
-import React from 'react';
 import simbolo from "../Traductor/simbolos/simbolo6.png";
 import { useNavigate } from "react-router-dom";
+import "./BtnContinuar.css";
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import axios from "axios";
 
-function HuaqSymbol6() {
-    const navigate = useNavigate();
+function HuaqSymbol6({ historia }) {
+  const [rightSymbol, setRightSymbol] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
-    const handleContinue = () => {
-        navigate('/juego/huaquero'); // Ruta a la que se redirige
-    };
+  const navigate = useNavigate();
 
-    return (
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <img src={simbolo} alt="Confirmation" style={{ width: '200px', height: '200px' }} />
-            <h2>¿Estás seguro de que quieres escoger este símbolo?</h2>
-            <button onClick={handleContinue} style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>
-                Continuar
-            </button>
-        </div>
-    );
-};
+  const updateSymbol = async (symbolName) => {
+    try {
+      const response = await axios.patch(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode",
+        { symbolName, found: true }
+      );
+      console.log(`Symbol ${symbolName} updated successfully`);
+    } catch (error) {
+      console.error(`Error updating symbol ${symbolName}:`, error);
+    }
+  };
+
+  useEffect(() => {
+    checkHistory(historia);
+  }, [historia]);
+
+  function checkHistory(historia) {
+    console.log(historia);
+    let rightsymb = false;
+    if (historia === 1) {
+      rightsymb = true;
+    } else if (historia === 2) {
+      rightsymb = false;
+    } else if (historia === 3) {
+      rightsymb = false;
+    } else if (historia === 4) {
+      rightsymb = false;
+    } else if (historia === 5) {
+      rightsymb = false;
+    } else {
+      console.warn("Unhandled history case: ", historia);
+    }
+    setRightSymbol(rightsymb);
+  }
+
+  const handleButtonClick = () => {
+    const isCorrect = rightSymbol;
+    if (isCorrect) {
+      updateSymbol("Symbol2");
+      setPopupMessage("Símbolo Correcto! Serás redirigido...");
+    } else {
+      setPopupMessage("Símbolo Incorrecto! Serás redirigido...");
+    }
+    setShowPopup(true);
+    setTimeout(() => {
+      navigate("/juego/huaquero");
+    }, 5000); // Redirigir después de 3 segundos
+  };
+
+  return (
+    <div>
+      <p className="parrafoInferior margen">
+        ¿Estás seguro de que quieres escoger este símbolo?
+      </p>
+      <div className="fondoAmarillo">
+        <img
+          src={simbolo}
+          alt="Confirmation"
+          style={{ width: "200px", height: "200px" }}
+        />
+        <button
+          className="btnContinuar"
+          onClick={handleButtonClick}
+          style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}
+        >
+          Continuar
+        </button>
+
+        {showPopup && (
+          <div className="popup">
+            <p className="parrafoInferior margen">{popupMessage}</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export { HuaqSymbol6 };

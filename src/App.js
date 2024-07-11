@@ -15,14 +15,13 @@ import { Introduccion } from "./Introduccion";
 import { SeleccionCargando } from "./SeleccionCargando";
 import { Picker } from "./Picker";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { Traductor } from "./Traductor";
 import { Bloqueo } from "./Bloqueo";
 import { JuegoHuaquero } from "./JuegoHuaquero";
 import { SymbolsPage } from "./huaquero2AntroTest";
 import { FeedbackPositivo } from "./Ganan";
 import { FeedbackNegativo } from "./Pierden";
 import { AntroTest } from "./antrotest";
-import { Induccion } from "./induccion";
+import { MuseoInduccion } from "./MuseoInduccion";
 import { FraseMuseo } from "./FraseMuseo";
 import { RevisarCelular } from "./RevisarCelular";
 import { IntentaloDenuevo } from "./IntentaloDenuevo";
@@ -70,67 +69,101 @@ function App() {
           <Routes>
             <Route path="/*" element={<p>no encontrado</p>} />
             <Route path="/" element={<InputCodigo />} />
-            <Route path="/introduccion" element={<Picker />} />
+
             <Route path="/museo" element={<PantallaMuseo />} />
-            <Route path="/induccion" element={<Induccion />} />
+            <Route path="/MuseoInduccion" element={<MuseoInduccion />} />
             <Route path="/animacionMuseo" element={<AnimacionMuseo />} />
             <Route path="/qrMuseo" element={<QrMuseo />} />
-            <Route path="/introduccion/:slug" element={<Introduccion />} />
+            <Route path="/tematicaMuseo" element={<TematicaMuseo />} />
             <Route path="/rolesMuseo" element={<RolesMuseo />} />
+            <Route path="/estadoMuseo" element={<EstadoMuseo />} />
+            <Route path="/revisarCelular" element={<RevisarCelular />} />
+            <Route path="/fraseMuseo" element={<FraseMuseo historia={1} />} />
+
+            <Route path="/tematicaMuseo2" element={<TematicaMuseo2 />} />
+
+            <Route path="/introduccion" element={<Picker />} />
+            <Route path="/introduccion/:slug" element={<Introduccion />} />
+
             <Route path="/TestFinalizada" element={<TestFinalizada />} />
             <Route path="/seleccionCargando" element={<SeleccionCargando />} />
+
             <Route path="/juego/guia" element={<Mapa historia={1} />} />
+            <Route path="/juego/huaquero" element={<HuaqCamera />} />
             <Route
               path="/juego/interprete"
               element={<Minijuego historia={1}></Minijuego>}
+            />
+            <Route
+              path="/juego/antropologo"
+              element={<Bloqueo historia={1}></Bloqueo>}
             />
 
             <Route path="/pierden" element={<FeedbackNegativo />} />
             <Route path="/ganan" element={<FeedbackPositivo />} />
 
-            <Route
-              path="/juego/antropologo"
-              element={<Bloqueo historia={1}></Bloqueo>}
-            />
-            <Route path="/juego/huaquero" element={<Huaquero historia={1} />} />
-            <Route path="/estadoMuseo" element={<EstadoMuseo />} />
-
-            <Route path="/revisarCelular" element={<RevisarCelular />} />
-
-            <Route path="/fraseMuseo" element={<FraseMuseo historia={1} />} />
             <Route path="/intentaloDenuevo" element={<IntentaloDenuevo />} />
             <Route path="/gananMuseo" element={<GananMuseo historia={1} />} />
             <Route path="/museoTabla" element={<MuseoTabla />} />
             <Route path="/museoTablaMejorT" element={<TablaMuseoMejorT />} />
-            <Route path="/tematicaMuseo" element={<TematicaMuseo />} /> 
-            <Route path="/tematicaMuseo2" element={<TematicaMuseo2 />} />
 
-            <Route path="/HuaqSymbol1" element={<HuaqSymbol1 />} />
-            <Route path="/HuaqSymbol2" element={<HuaqSymbol2 />} />
-            <Route path="/HuaqSymbol3" element={<HuaqSymbol3 />} />
-            <Route path="/HuaqSymbol4" element={<HuaqSymbol4 />} />
-            <Route path="/HuaqSymbol5" element={<HuaqSymbol5 />} />
-            <Route path="/HuaqSymbol6" element={<HuaqSymbol6 />} />
-            <Route path="/HuaqSymbol7" element={<HuaqSymbol7 />} />
-            <Route path="/HuaqSymbol8" element={<HuaqSymbol8 />} />
-            <Route path="/HuaqSymbol9" element={<HuaqSymbol9 />} />
-            <Route path="/HuaqSymbol10" element={<HuaqSymbol10 />} />
-            <Route path="/HuaqSymbol11" element={<HuaqSymbol11 />} />
-            <Route path="/HuaqSymbol12" element={<HuaqSymbol12 />} />
-            <Route path="/HuaqSymbol13" element={<HuaqSymbol13 />} />
-            <Route path="/HuaqSymbol14" element={<HuaqSymbol14 />} />
-            <Route path="/HuaqSymbol15" element={<HuaqSymbol15 />} />
-            <Route path="/HuaqSymbol16" element={<HuaqSymbol16 />} />
-            <Route path="/HuaqSymbol17" element={<HuaqSymbol17 />} />
-            <Route path="/HuaqSymbol18" element={<HuaqSymbol18 />} />
-            <Route path="/HuaqSymbol19" element={<HuaqSymbol19 />} />
-            <Route path="/HuaqSymbol20" element={<HuaqSymbol20 />} />
-            
+            <Route path="/HuaqSymbol1" element={<HuaqSymbol1 historia={1} />} />
+            <Route path="/HuaqSymbol2" element={<HuaqSymbol2 historia={1} />} />
+            <Route path="/HuaqSymbol3" element={<HuaqSymbol3 historia={1} />} />
+            <Route path="/HuaqSymbol4" element={<HuaqSymbol4 historia={1} />} />
+            <Route path="/HuaqSymbol5" element={<HuaqSymbol5 historia={1} />} />
+            <Route path="/HuaqSymbol6" element={<HuaqSymbol6 historia={1} />} />
+            <Route path="/HuaqSymbol7" element={<HuaqSymbol7 historia={1} />} />
+            <Route path="/HuaqSymbol8" element={<HuaqSymbol8 historia={1} />} />
+            <Route path="/HuaqSymbol9" element={<HuaqSymbol9 historia={1} />} />
+            <Route
+              path="/HuaqSymbol10"
+              element={<HuaqSymbol10 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol11"
+              element={<HuaqSymbol11 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol12"
+              element={<HuaqSymbol12 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol13"
+              element={<HuaqSymbol13 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol14"
+              element={<HuaqSymbol14 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol15"
+              element={<HuaqSymbol15 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol16"
+              element={<HuaqSymbol16 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol17"
+              element={<HuaqSymbol17 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol18"
+              element={<HuaqSymbol18 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol19"
+              element={<HuaqSymbol19 historia={1} />}
+            />
+            <Route
+              path="/HuaqSymbol20"
+              element={<HuaqSymbol20 historia={1} />}
+            />
+
             <Route path="/HuaqQR" element={<HuaqQR />} />
-            
-            <Route path="/HuaqCamera" element={<HuaqCamera />} />
-            <Route path="/TimeTest" element={<TimeTest />} />
 
+            <Route path="/TimeTest" element={<TimeTest />} />
           </Routes>
         </MyContextProvider>
       </HashRouter>

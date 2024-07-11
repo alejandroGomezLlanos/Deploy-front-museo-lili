@@ -1,0 +1,44 @@
+.btnContinuar {
+    background: #EE8249;
+    border-radius: 10px;
+    width: 170px;
+    padding: 10px;
+    border: none;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 20px;
+    color: #432B18;
+    position: fixed;
+    bottom: 20px; /* Distancia desde la parte inferior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta para centrar correctamente */
+    text-align: center; /* Alinea el texto al centro */
+    z-index: 1000; /* Ajusta el z-index según sea necesario */
+}
+
+/* Media queries para ajustar el diseño en diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+    .btnContinuar {
+        width: 140px;
+        font-size: 18px;
+        bottom: 10px;
+    }
+}
+.btnContinuar:active{
+    background: #B66032;
+    color: #432B18;
+}
+.btnContinuar>a{
+    text-decoration: none;
+    color: #432B18;
+}
+.btnContinuarBlock{
+    background: #90644D;
+    color: #6E3E22;
+    border-radius: 10px;
+    margin: 15px;
+    width: 204px;
+    font-size: 23px;
+    padding: 10px;
+    border: none;
+    height: 41px;
+}

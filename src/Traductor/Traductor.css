@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    MARGIN-TOP: 25px;
+    MARGIN-TOP: -5px;
     justify-content: space-around;
 
 }
@@ -11,24 +11,34 @@
     width: 150px;
     margin: 5px;
 }
+
 .fondoAmarillo {
-    position: fixed;
-    top: 217px;
-    left: 0;
-    background-color: #FED158;
-    width: 80vw;
-    height: 652px;
-    border-radius: 90px 90px 0px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10vw;
+  position: fixed;
+  top: 217px;
+  left: 0;
+  background-color: #FED158;
+  width: 100vw; /* Asegura que ocupe el ancho completo de la pantalla */
+  height: calc(100vh - 217px); /* Ajusta la altura para que el borde inferior toque la pantalla */
+  border-radius: 90px 90px 0 0; /* Ajusta si solo quieres los bordes superiores redondeados */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10vw;
+  box-sizing: border-box; /* Asegura que el padding no aumente el tamaño del contenedor */
+}
+
+@media (max-width: 386px) {
+  .fondoAmarillo {
+      padding: 5vw; /* Reducir padding en pantallas muy pequeñas */
+      border-radius: 50px 50px 0 0; /* Ajustar el border-radius para pantallas más pequeñas */
+  }
 }
 
 .btnInterpreteSlide{
     background: none;
     border: none;
+    MARGIN-TOP: -70px;
 }
 /* Estilos para el modal */
 .modal {

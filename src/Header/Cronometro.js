@@ -25,7 +25,7 @@ function Cronometro() {
       );
       setTime(response.data[0].time);
 
-      if (time === 1) {
+      if (time === -1) {
         clearInterval(intervalRef.current);
       }
     } catch (error) {

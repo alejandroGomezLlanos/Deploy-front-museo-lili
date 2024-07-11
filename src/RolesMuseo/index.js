@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RolesMuseo.css";
-import GuiaLogo from "./resources/GuiaLogo.png";
-import HuaqueroLogo from "./resources/HuaqueroLogo.png";
-import InterpreteLogo from "./resources/InterpreteLogo.png";
-import AntropologoLogo from "./resources/AntropologoLogo.png";
+import GuiaLogo from "./resources/logoGuia.png";
+import HuaqueroLogo from "./resources/logoHuaquero.png";
+import InterpreteLogo from "./resources/logoInterprete.png";
+import AntropologoLogo from "./resources/logoAntropologo.png";
 import FondoRoles from "./resources/FondoRoles.png";
 import NarracionGuia from "./resources/NarracionGuia.mp3";
 import NarracionHuaquero from "./resources/NarracionHuaquero.mp3";
@@ -75,11 +75,7 @@ function RolesMuseo() {
   }, [audioCounter, navigate]);
 
   return (
-    <div className="roles-section">
-      <div
-        className="fondo"
-        style={{ backgroundImage: `url(${FondoRoles})` }}
-      ></div>
+    <div className="roles-section" style={{ backgroundImage: `url(${FondoRoles})` }}>
       <h1>¡Seleccionen sus roles, viajeros!</h1>
       <h3>Estamos a punto de comenzar.</h3>
       <div className="roles-container">

@@ -128,11 +128,11 @@ input::placeholder {
 
 .mychecked {
   cursor: pointer;
-  background-color: #90644d;
+  background-color: #ffffff;
   width: 13px;
   height: 13px;
   appearance: none;
-  border: 3px solid #d3a14a;
+  border: 3px solid #000000;
   border-radius: 3px;
 }
 
@@ -141,7 +141,7 @@ input::placeholder {
   position: absolute;
   inset: 40px;
   border: 1px solid rgb(204, 204, 204);
-  background: #fed158;
+  background: #E94D1A;
   overflow: auto;
   outline: none;
   padding: 15px 0;
@@ -157,7 +157,7 @@ input::placeholder {
 }
 
 .modaltitulo {
-  color: #75553b;
+  color: #ffffff;
   font-size: 32px;
   margin: 5px;
   font-weight: 800;
@@ -167,7 +167,7 @@ input::placeholder {
 
 .inputRegistro {
   -webkit-font-smoothing: antialiased;
-  background: #d3a14a;
+  background: #ffffff;
   border: none;
   border-radius: 6px;
   height: 29px;
@@ -178,13 +178,14 @@ input::placeholder {
   margin-top: 0 !important;
   font-family: "ABeeZee", sans-serif;
   font-size: 12px;
-  color: #424242;
+  color: #000000;
 }
 
 .txtTerminos {
   display: flex;
   align-items: center;
   font-size: 9px;
+  color: #ffffff
 }
 form {
   display: flex;
@@ -204,7 +205,7 @@ input::placeholder {
 
 .mycheck {
   cursor: pointer;
-  background-color: #d3a14a;
+  background-color: #FFFDFB;
   width: 13px;
   height: 13px;
   appearance: none;
@@ -213,7 +214,8 @@ input::placeholder {
 
 .mycheckRol {
   cursor: pointer;
-  background-color: #d3a14a;
+  background-color: #FFFDFB;
+  opacity: 43%;
   width: 26px;
   height: 26px;
   appearance: none;
@@ -222,10 +224,10 @@ input::placeholder {
 
 .mycheckedRol {
   cursor: pointer;
-  background-color: #90644d;
+  background-color: #ffffff;
   width: 26px;
   height: 26px;
-  border: 2.5px solid #d3a14a;
+  border: 2.5px solid #000000;
   appearance: none;
   border-radius: 13px;
 }
@@ -296,6 +298,7 @@ input::placeholder {
   font-size: 14px;
   display: flex;
   align-items: center;
+  color: #ffffff
 }
 
 
