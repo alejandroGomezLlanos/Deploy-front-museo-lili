@@ -74,7 +74,7 @@ function EstadoMuseo() {
   const getCurrentRoom = async () => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       const currentRoomArray = response.data;
 
@@ -93,13 +93,13 @@ function EstadoMuseo() {
     try {
       // Obtener el código de la sala
       const roomResponse = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       setRoomCode(roomResponse.data[0].code);
 
       // Obtener el recuento de usuarios
       const userResponse = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/users"
+        "http://172.16.20.198:3500/users"
       );
       const users = userResponse.data;
       const count = users.filter((user) => user.codigoSala === roomCode).length;
@@ -132,7 +132,7 @@ function EstadoMuseo() {
     console.log("Looking for users with roomCode: ", roomCode);
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/users"
+        "http://172.16.20.198:3500/users"
       );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);

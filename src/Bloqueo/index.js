@@ -107,7 +107,7 @@ function Bloqueo(props) {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get("http://172.16.20.198:3500/roomCode");
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -135,7 +135,7 @@ function Bloqueo(props) {
 
   const findNFilterUsers = async (roomCode) => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+      const response = await axios.get("http://172.16.20.198:3500/users");
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -200,7 +200,7 @@ function Bloqueo(props) {
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode"); // Replace with the correct API endpoint
+      const response = await axios.get("http://172.16.20.198:3500/roomCode"); // Replace with the correct API endpoint
       const huaqueroSymbols = response.data[0].huaqueroSymbols;
 
       console.log("Full Response:", response.data); // Log entire response
@@ -255,7 +255,7 @@ function Bloqueo(props) {
 
   const getUserData = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users"); // Adjusted the endpoint
+      const response = await axios.get("http://172.16.20.198:3500/users"); // Adjusted the endpoint
       const users = response.data;
       const user = users.find((u) => u._id === userId); // Assuming each user object has an _id field
 
@@ -276,7 +276,7 @@ function Bloqueo(props) {
     if (userData) {
       try {
         const response = await axios.patch(
-          "https://testdeploy-production-9d97.up.railway.app/users",
+          "http://172.16.20.198:3500/users",
           {
             _id: userId,
             name: userData.name,

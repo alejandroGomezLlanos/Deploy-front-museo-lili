@@ -9,7 +9,7 @@ function TimeTest() {
     try {
       // Obtener el código de la sala
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/time"
+        "https://172.16.20.198:3500/time"
       );
       setTime(response.data[0].time);
       
@@ -39,7 +39,7 @@ function TimeTest() {
   const updateTime = async (time) => {
     try {
       const response = await axios.patch(
-        "https://testdeploy-production-9d97.up.railway.app/time",
+        "https://172.16.20.198:3500/time",
         { time: 120 }
       );
       console.log(`Time updated successfully to ${time}`);
