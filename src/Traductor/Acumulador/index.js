@@ -70,7 +70,6 @@ function Acumulador(props) {
 
     return (
         <div className="acumulador">
-            <p className="txtAcumulador txtAcumulador">Debajo encontrarás los símbolos encontrados por el Huaquero. </p>
             <div className="simboloscontenedor" >
                 {lugares.map((lugar, index) => (
                     <img

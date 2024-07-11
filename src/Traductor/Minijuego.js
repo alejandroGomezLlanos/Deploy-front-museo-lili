@@ -482,7 +482,9 @@ const Minijuego = (props) => {
         parrafo="Ten cuidado, si descubres símbolos diferentes a los que el Huaquero te mostró, perderás los que has descubierto"
       ></Contexto>
       <div className="fondoAmarillo">
+
         <div className="contentMinijuego">
+          
           <button
             className="btnInterpreteSlide"
             onClick={cambiarComponenteInterprete}
@@ -493,6 +495,7 @@ const Minijuego = (props) => {
               <img src={on} alt="logo de Guia" />
             )}
           </button>
+
           <button className="ContTraduccion sonido" onClick={playSound}>
             {btnSlide ? (
               anagramas.map((simbolo, index) => (
@@ -512,16 +515,17 @@ const Minijuego = (props) => {
               />
             )}
           </button>
-        </div>
-      </div>
 
-      <Acumulador
+        </div>
+
+        <Acumulador
         historia={props.historia}
         encontrado1={encontrados[0]}
         encontrado2={encontrados[1]}
         encontrado3={encontrados[2]}
         encontrado4={encontrados[3]}
       />
+      </div>
     </>
   );
 };
