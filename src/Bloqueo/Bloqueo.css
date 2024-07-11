@@ -15,10 +15,20 @@
     margin-top: 4px;
 }
 
-.info_juegoAntropologoTitulo{
+.info_juegoAntropologoTitulo {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 31px !important;
-    margin-top: 74px;
+    margin-top: 0; /* Remove margin-top */
+    text-align: center; /* Center text within its container */
+    width: 100%; /* Ensure it stretches across the width of the screen */
+    padding: 10px; /* Add some padding if needed */
+    background-color: #fff; /* Example background color for better visibility */
+    z-index: 10; /* Ensure it stays above other content */
 }
+
 .verde {
     color: green;
 }
