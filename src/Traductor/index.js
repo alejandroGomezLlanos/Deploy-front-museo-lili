@@ -76,7 +76,7 @@ function Traductor(props) {
 
   const fetchRoomCode = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get("http://172.16.20.198:3500/roomCode");
       console.log("Code: ", response.data[0].code); // Log entire response
       if (response.data.length > 0 && response.data[0].code) {
         setRoomCode(response.data[0].code); // Set the room code state
@@ -88,7 +88,7 @@ function Traductor(props) {
 
   const addSymbol = async (symbolName) => {
     try {
-      const response = await axios.post("https://testdeploy-production-9d97.up.railway.app/roomCode", {
+      const response = await axios.post("http://172.16.20.198:3500/roomCode", {
         huaqueroSymbols: {
           name: symbolName,
           found: false,
@@ -103,7 +103,7 @@ function Traductor(props) {
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get("http://172.16.20.198:3500/roomCode");
       setSymbols(response.data[0].huaqueroSymbols); // Assuming the symbols are stored in an array inside the response
     } catch (error) {
       console.error("Error fetching symbols:", error);
@@ -112,7 +112,7 @@ function Traductor(props) {
 
   const updateSymbol = async (symbolName) => {
     try {
-      const response = await axios.patch("https://testdeploy-production-9d97.up.railway.app/roomCode", {
+      const response = await axios.patch("http://172.16.20.198:3500/roomCode", {
         symbolName,
         found: true,
       });

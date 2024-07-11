@@ -114,7 +114,7 @@ function Huaquero(props) {
 
     const getCurrentRoom = async () => {
         try {
-            const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+            const response = await axios.get("http://172.16.20.198:3500/roomCode");
             const currentRoomArray = response.data;
 
             if (currentRoomArray && currentRoomArray.length > 0) {
@@ -143,7 +143,7 @@ function Huaquero(props) {
 
     const findNFilterUsers = async (roomCode) => {
         try {
-            const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+            const response = await axios.get("http://172.16.20.198:3500/users");
             const users = response.data;
             const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -215,7 +215,7 @@ function Huaquero(props) {
 
     const fetchRoomCode = async () => {
         try {
-            const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+            const response = await axios.get("http://172.16.20.198:3500/roomCode");
             console.log("Code: ", response.data[0].code); // Log entire response
             if (response.data.length > 0 && response.data[0].code) {
                 setRoomCode(response.data[0].code); // Set the room code state
@@ -227,7 +227,7 @@ function Huaquero(props) {
 
     const addSymbol = async (symbolName) => {
         try {
-            const response = await axios.post("https://testdeploy-production-9d97.up.railway.app/roomCode", {
+            const response = await axios.post("http://172.16.20.198:3500/roomCode", {
                 huaqueroSymbols: {
                     name: symbolName,
                     found: false,
@@ -242,7 +242,7 @@ function Huaquero(props) {
 
     const fetchSymbols = async () => {
         try {
-            const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+            const response = await axios.get("http://172.16.20.198:3500/roomCode");
             setSymbols(response.data[0].huaqueroSymbols); // Assuming the symbols are stored in an array inside the response
         } catch (error) {
             console.error("Error fetching symbols:", error);
@@ -251,7 +251,7 @@ function Huaquero(props) {
 
     const updateSymbol = async (symbolName) => {
         try {
-            const response = await axios.patch('https://testdeploy-production-9d97.up.railway.app/roomCode', { symbolName, found: true });
+            const response = await axios.patch('http://172.16.20.198:3500/roomCode', { symbolName, found: true });
             console.log(`Symbol ${symbolName} updated successfully`);
         } catch (error) {
             console.error(`Error updating symbol ${symbolName}:`, error);
