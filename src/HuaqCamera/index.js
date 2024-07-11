@@ -251,7 +251,7 @@ function HuaqCamera() {
   };
 
   const videoConstraints = {
-    facingMode: "user", // Especifica que se use la cámara trasera
+    facingMode: "environment", // Especifica que se use la cámara trasera
   };
 
   return (
@@ -269,7 +269,7 @@ function HuaqCamera() {
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          constrains={videoConstraints}
+          constraints={videoConstraints}
         />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}

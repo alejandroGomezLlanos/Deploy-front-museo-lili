@@ -15,7 +15,7 @@ function HuaqSymbol15({ historia }) {
   const updateSymbol = async (symbolName) => {
     try {
       const response = await axios.patch(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode",
+        "http://172.16.20.198:3500/roomCode",
         { symbolName, found: true }
       );
       console.log(`Symbol ${symbolName} updated successfully`);
