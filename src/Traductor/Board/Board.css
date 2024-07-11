@@ -1,14 +1,19 @@
 .board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    max-width: 600px;
-    margin: 20px auto;
-    width: 270px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  width: 270px;
 }
-.contentMinijuego{
+.contentMinijuego {
     display: flex;
     flex-direction: column;
-        align-items: center;
-        
-}
+    align-items: center;
+    width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+    height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+    justify-content: center; /* Centra verticalmente */
+    overflow: hidden; /* Evita que el contenido se desborde */
+    box-sizing: border-box;
+  }
+  
