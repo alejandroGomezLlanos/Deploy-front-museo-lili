@@ -32,7 +32,7 @@ function PantallaMuseo() {
         } else {
           setImagenActual(3);
           setAnimacionActiva(false); // Detener la animación
-          navigate("/induccion"); // Navegar a la nueva página
+          navigate("/museoinduccion"); // Navegar a la nueva página
         }
       }, 400);
 

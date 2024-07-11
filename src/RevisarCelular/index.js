@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./RevisarCelular.css";
 import celular from "./resource/Celular.png";
-import superder from "../FraseMuseo/resource/supder.png";
-import infeizq from "../FraseMuseo/resource/infeizq.png";
+import fondo from "./resource/fondo1.png";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
 
 function RevisarCelular() {
   const navigate = useNavigate();
@@ -37,21 +35,12 @@ function RevisarCelular() {
     navigate("/fraseMuseo");
   };
 
-  
-
   return (
-    <div className="cont-infocel">
-      <div class="containersuperder">
-        <img class="image" src={superder} alt="Super" />
-      </div>
-      <div class="containerinfeizq">
-        <img class="image" src={infeizq} alt="Super" />
-      </div>
-
+    <div className="cont-infocel" style={{ backgroundImage: `url(${fondo})` }}>
       <div className="informacionCelular">
         <h1>¡Viajeros!</h1>
         <p>Revisen sus celulares para continuar con la experiencia.</p>
-        <img class="image" src={celular} alt="Super" />
+        <img className="image" src={celular} alt="Super" />
       </div>
     </div>
   );

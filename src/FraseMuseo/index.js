@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./fraseMuseo.css";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import superder from "./resource/supder.png";
-import infeizq from "./resource/infeizq.png";
+import fondo from "./resource/fondo1.png";
 import cronometro from "../Header/Reloj/Reloj15.png";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -405,19 +404,6 @@ function FraseMuseo({ historia }) {
     }
   }, [sentence]);
 
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (timeLeft > 0) {
-        setTimeLeft(timeLeft - 1);
-      }
-    }, 1000); // Update the timer every second
-
-    return () => {
-      clearInterval(timer); // Clean up the timer when the component unmounts
-    };
-  }, [timeLeft]);
 
   // Function to format the time in minutes and seconds
   const formatTime = (seconds) => {
@@ -605,8 +591,7 @@ function FraseMuseo({ historia }) {
       );
       setTime(response.data[0].time);
       
-
-      if (time === 1) {
+      if (time === -1) {
         clearInterval(intervalRef.current);
       }
     } catch (error) {
@@ -617,6 +602,7 @@ function FraseMuseo({ historia }) {
   useEffect(() => {
     // Obtener datos de la sala inmediatamente cuando el componente se monta
     fetchTime();
+    handleSubmit();
 
     // Establecer un intervalo para obtener datos
     intervalRef.current = setInterval(fetchTime, 10 * 50);
@@ -628,7 +614,12 @@ function FraseMuseo({ historia }) {
     };
   }, [time]);
 
-  
+  const handleSubmit = () => {
+    if (time === 0) {
+      navigate("/intentaloDenuevo");
+    } 
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       {showModal && (
@@ -637,13 +628,7 @@ function FraseMuseo({ historia }) {
         </div>
       )}
       {antropologo ? (
-        <div className="complete-the-sentence">
-          <div className="containersuperder">
-            <img className="image" src={superder} alt="Super" />
-          </div>
-          <div className="containerinfeizq">
-            <img className="image" src={infeizq} alt="Super" />
-          </div>
+        <div className="complete-the-sentence" style={{ backgroundImage: `url(${fondo})` }}>
 
           <h1 className={`tituloFraseMuseo ${completed ? "green-title" : ""}`}>
             Completa la frase
@@ -1012,13 +997,8 @@ function FraseMuseo({ historia }) {
           </div>
         </div>
       ) : (
-        <div className="tiempoGrupal">
-          <div className="containersuperder">
-            <img className="image" src={superder} alt="Super" />
-          </div>
-          <div className="containerinfeizq">
-            <img className="image" src={infeizq} alt="Super" />
-          </div>
+        <div className="tiempoGrupal" style={{ backgroundImage: `url(${fondo})` }}>
+
           <h1>Apresúrense, el tiempo corre...</h1>
           <img
             className="animacionCronometro tamañoGrande"

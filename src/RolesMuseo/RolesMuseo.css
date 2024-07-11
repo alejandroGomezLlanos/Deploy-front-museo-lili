@@ -1,12 +1,4 @@
 .roles-section {
-  width: 95%;
-  margin: auto;
-  padding: 20px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.fondo {
   background-size: 1280px 1024px;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,6 +8,10 @@
   top: 0;
   left: 0;
   z-index: -1;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .roles-section h1 {

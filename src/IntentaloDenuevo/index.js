@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./intentaloDenuevo.css";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
-import superder from "../FraseMuseo/resource/supder.png";
-import infeizq from "../FraseMuseo/resource/infeizq.png";
 import cronometro from "../Header/Reloj/Reloj15.png";
+import fondo from "./resource/sad.png";
 import { useNavigate } from "react-router-dom";
 
 function IntentaloDenuevo({ historia }) {
@@ -14,16 +13,10 @@ function IntentaloDenuevo({ historia }) {
     navigate("/museoTablaMejorT");
   };
   return (
-    <div className="contIntentalo">
-      <div className="containersuperder">
-        <img className="image" src={superder} alt="Super" />
-      </div>
-      <div className="containerinfeizq">
-        <img className="image" src={infeizq} alt="Super" />
-      </div>
+    <div className="contIntentalo" style={{ backgroundImage: `url(${fondo})` }}>
       <div className="divIntentalo">
         <h1>Inténtalo de nuevo</h1>
-        <button className="btnContinuar btnSize" onClick={handleContinuarClick}>
+        <button className="btnContinuar" onClick={handleContinuarClick}>
           Continuar
         </button>
       </div>
