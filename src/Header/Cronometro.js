@@ -21,7 +21,7 @@ function Cronometro() {
     try {
       // Obtener el código de la sala
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/time"
+        "http://172.16.20.198:3500/time"
       );
       setTime(response.data[0].time);
 

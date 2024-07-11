@@ -251,7 +251,7 @@ function HuaqCamera() {
   };
 
   const videoConstraints = {
-    facingMode: "user", // Especifica que se use la cámara trasera
+    facingMode: "rear", // Especifica que se use la cámara trasera
   };
 
   return (
