@@ -15,7 +15,6 @@ import { Introduccion } from "./Introduccion";
 import { SeleccionCargando } from "./SeleccionCargando";
 import { Picker } from "./Picker";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import { Traductor } from "./Traductor";
 import { Bloqueo } from "./Bloqueo";
 import { JuegoHuaquero } from "./JuegoHuaquero";
 import { SymbolsPage } from "./huaquero2AntroTest";
