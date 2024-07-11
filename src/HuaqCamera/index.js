@@ -269,7 +269,7 @@ function HuaqCamera() {
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          constraints={videoConstraints}
+          constrains={videoConstraints}
         />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}
