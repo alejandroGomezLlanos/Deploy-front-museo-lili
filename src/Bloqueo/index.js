@@ -329,7 +329,7 @@ function Bloqueo(props) {
         </div>
         {!areAllInputsCorrect ? (
           <button
-            className="btnContinuar btnContinuarBlock btnAntropologo"
+            className="btnAntropologo"
             disabled
           >
             Continuar
@@ -337,7 +337,7 @@ function Bloqueo(props) {
         ) : (
           <Link
             to={`/juego/`}
-            className="btnContinuar btnAntropologo"
+            className="btnAntropologo"
             onClick={handleClick}
           >
             Continuar

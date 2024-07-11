@@ -30,11 +30,24 @@
 margin: 0 !important;
 font-size: 31px !important;
 }
-.btnAntropologo{
-    margin-top: 40px;
+.btnAntropologo {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     text-decoration: none;
     text-align: center;
+    margin-top: 0; /* Remove the margin-top */
+    width: 100%; /* Ensure the button stretches across the width of the screen */
+    background-color: #EE8249; /* Example background color */
+    color: #432B18; /* Example text color */
+    padding: 10px; /* Example padding */
+    font-family: 'ABeeZee', sans-serif; /* Example font family */
+    font-size: 20px; /* Example font size */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Example border radius */
 }
+
 .textoAcronimo{
     -webkit-text-stroke: 1px #523115;
     font-size: 35px;
