@@ -49,10 +49,6 @@ function QrMuseo() {
     };
   }, [roomCode, userCount]);
 
-  const handleRefreshClick = () => {
-    // Redireccionar a /tematicaMuseo cuando se presiona el botón de refresh
-    navigate("/tematicaMuseo");
-  };
 
   // Redireccionar a /tematicaMuseo cuando la sala está llena
   useEffect(() => {
@@ -65,9 +61,8 @@ function QrMuseo() {
     <div className="container-qr-museo" style={{ backgroundImage: `url(${fondo})` }}>
       <div className="texto-contenedor">
         <div className="texto-informacion">
-          <div className="linea-texto">Lee el código QR o</div>
-          <div className="linea-texto">ingresa el código de</div>
-          <div className="linea-texto">la sala.</div>
+          <div className="linea-texto">Lee el código QR o ingresa</div>
+          <div className="linea-texto">el código de la sala.</div>
         </div>
 
         <div className="imagenes-contenedor">
@@ -84,14 +79,8 @@ function QrMuseo() {
               </>
             )}
           </div>
-          <img
-            src={refresh}
-            alt="Descripción del botón"
-            className="imagen-boton"
-            onClick={handleRefreshClick}
-          />
         </div>
-        <div className="texto-informacion contador">{userCount}/4</div>
+        <div className="texto-informacion-contador">{userCount}/4</div>
       </div>
     </div>
   );

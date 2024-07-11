@@ -15,6 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -600px;
 }
 
 .contIntentalo {
@@ -26,7 +27,7 @@
   justify-content: center;
   display: flex;
 }
-.btnSize {
+.btnContinuar {
   width: 362.23px;
   height: 71.201px;
   font-size: 36px;

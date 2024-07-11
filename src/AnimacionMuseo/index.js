@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./AnimacionMuseo.css";
 import video from "./resources/Contextualizacin.mp4";
+import FondoRoles from "./resources/fondo1.png";
 
 function AnimacionMuseo() {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function AnimacionMuseo() {
   };
 
   return (
-    <div className="container-animacion-museo">
+    <div className="fondo" style={{ backgroundImage: `url(${FondoRoles})` }}>
       <video
         className="video-content"
         controls // Controles ya que no deja reproducir sin una interaccion

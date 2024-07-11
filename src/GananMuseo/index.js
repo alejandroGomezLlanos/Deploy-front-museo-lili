@@ -2,8 +2,7 @@ import React from "react";
 import "./GananMuseo.css";
 import { Link, useParams } from "react-router-dom";
 import { blogdata } from "../blogdata";
-import superder from "../FraseMuseo/resource/supder.png";
-import infeizq from "../FraseMuseo/resource/infeizq.png";
+import fondo from "./resource/fondo1.png";
 import { useNavigate } from "react-router-dom";
 
 
@@ -53,13 +52,7 @@ function GananMuseo({ historia }) {
 
   return (
     <>
-      <div className="contGanan">
-        <div className="containersuperder">
-          <img className="image" src={superder} alt="Super" />
-        </div>
-        <div className="containerinfeizq">
-          <img className="image" src={infeizq} alt="Super" />
-        </div>
+      <div className="contGanan" style={{ backgroundImage: `url(${fondo})` }}> 
         <h1>¡Felicitaciones!</h1>
         <p>Se han ganado estas insignias por su valentía</p>
         <div className="divsimbolos">
