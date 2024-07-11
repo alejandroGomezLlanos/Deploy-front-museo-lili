@@ -221,6 +221,8 @@ function HuaqCamera() {
     try {
       const response = await axios.get(
         "https://testdeploy-production-9d97.up.railway.app/roomCode"
+
+
       );
       setSymbols(response.data[0].huaqueroSymbols); // Assuming the symbols are stored in an array inside the response
     } catch (error) {
@@ -269,7 +271,7 @@ function HuaqCamera() {
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          constrains={videoConstraints}
+          constraints={videoConstraints}
         />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}
