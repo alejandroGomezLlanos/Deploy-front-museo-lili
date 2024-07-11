@@ -46,7 +46,7 @@ function Introduccion() {
 
     const getUserData = async () => {
         try {
-            const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users"); // Adjusted the endpoint
+            const response = await axios.get("http://172.16.20.198:3500/users"); // Adjusted the endpoint
             const users = response.data;
             const user = users.find((u) => u._id === userId); // Assuming each user object has an _id field
 
@@ -79,7 +79,7 @@ function Introduccion() {
         if (userData) {
             try {
                 const response = await axios.patch(
-                    "https://testdeploy-production-9d97.up.railway.app/users",
+                    "http://172.16.20.198:3500/users",
                     {
                         _id: userId,
                         name: userData.name,

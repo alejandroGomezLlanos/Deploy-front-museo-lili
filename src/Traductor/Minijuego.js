@@ -161,7 +161,7 @@ const Minijuego = (props) => {
   const getCurrentRoom = async () => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       const currentRoomArray = response.data;
 
@@ -192,7 +192,7 @@ const Minijuego = (props) => {
   const findNFilterUsers = async (roomCode) => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/users"
+        "http://172.16.20.198:3500/users"
       );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
@@ -248,7 +248,7 @@ const Minijuego = (props) => {
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode"); // Replace with the correct API endpoint
+      const response = await axios.get("http://172.16.20.198:3500/roomCode"); // Replace with the correct API endpoint
       console.log("Full Response:", response.data); // Log entire response
       const symbols = response.data[0].huaqueroSymbols; // Assuming the symbols are stored in an array inside the response
       const newEncontrados = [false, false, false, false];

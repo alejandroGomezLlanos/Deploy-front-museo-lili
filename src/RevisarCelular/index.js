@@ -11,7 +11,7 @@ function RevisarCelular() {
   const updateTime = async (time) => {
     try {
       const response = await axios.patch(
-        "https://testdeploy-production-9d97.up.railway.app/time",
+        "http://172.16.20.198:3500/time",
         { time: 600 }
       );
       console.log(`Time updated successfully to ${time}`);
