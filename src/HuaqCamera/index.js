@@ -84,7 +84,9 @@ function HuaqCamera() {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("http://172.16.20.198:3500/roomCode");
+      const response = await axios.get(
+        "http://172.16.20.198:3500/roomCode"
+      );
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -113,7 +115,9 @@ function HuaqCamera() {
 
   const findNFilterUsers = async (roomCode) => {
     try {
-      const response = await axios.get("http://172.16.20.198:3500/users");
+      const response = await axios.get(
+        "http://172.16.20.198:3500/users"
+      );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -183,7 +187,9 @@ function HuaqCamera() {
 
   const fetchRoomCode = async () => {
     try {
-      const response = await axios.get("http://172.16.20.198:3500/roomCode");
+      const response = await axios.get(
+        "http://172.16.20.198:3500/roomCode"
+      );
       console.log("Code: ", response.data[0].code); // Log entire response
       if (response.data.length > 0 && response.data[0].code) {
         setRoomCode(response.data[0].code); // Set the room code state
@@ -195,12 +201,15 @@ function HuaqCamera() {
 
   const addSymbol = async (symbolName) => {
     try {
-      const response = await axios.post("http://172.16.20.198:3500/roomCode", {
-        huaqueroSymbols: {
-          name: symbolName,
-          found: false,
-        },
-      });
+      const response = await axios.post(
+        "http://172.16.20.198:3500/roomCode",
+        {
+          huaqueroSymbols: {
+            name: symbolName,
+            found: false,
+          },
+        }
+      );
       console.log(`${symbolName} posted successfully`);
       setSymbols([...symbols, response.data]); // Update the symbols array with the newly added symbol
     } catch (error) {
@@ -210,7 +219,9 @@ function HuaqCamera() {
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("http://172.16.20.198:3500/roomCode");
+      const response = await axios.get(
+        "http://172.16.20.198:3500/roomCode"
+      );
       setSymbols(response.data[0].huaqueroSymbols); // Assuming the symbols are stored in an array inside the response
     } catch (error) {
       console.error("Error fetching symbols:", error);
@@ -239,10 +250,9 @@ function HuaqCamera() {
     overflow: "hidden", // Oculta cualquier contenido que se desborde del contenedor
   };
 
-  /*const videoConstraints = {
-    facingMode: "rear", // Especifica que se use la cámara trasera
+  const videoConstraints = {
+    facingMode: "environment", // Especifica que se use la cámara trasera
   };
-*/
 
   return (
     <div>
@@ -255,15 +265,11 @@ function HuaqCamera() {
 
       <div className="fondoAmarillo">
         <QrScanner
-          key="environment"
           delay={300}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          constraints={{
-            audio: false,
-            video: { facingMode: "environment" },
-          }}
+          constraints={videoConstraints}
         />
         <p className="parrafoInferior margen">
           Resultado del escaneo: {scanResult}
