@@ -6,9 +6,9 @@ import { Header } from "../Header";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-import useSound from 'use-sound';
-import SonidoenCorecto from './audio/sonidoCorrecto.mp3';
-import SonidoenIncorecto from './audio/sonidoIncorrecto.mp3';
+import useSound from "use-sound";
+import SonidoenCorecto from "./audio/sonidoCorrecto.mp3";
+import SonidoenIncorecto from "./audio/sonidoIncorrecto.mp3";
 
 function Bloqueo(props) {
   const historia = props.historia;
@@ -107,7 +107,9 @@ function Bloqueo(props) {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -128,14 +130,15 @@ function Bloqueo(props) {
       userDataI.finalizadaTarea == true &&
       userDataA.finalizadaTarea == true
     ) {
-      setTimeout(() => {
-      }, 3000); // Espera 5 segundos (5000 ms) antes de redirigir
+      setTimeout(() => {}, 3000); // Espera 5 segundos (5000 ms) antes de redirigir
     }
   }, [userDataG, userDataG, userDataG, userDataG]);
 
   const findNFilterUsers = async (roomCode) => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
 
@@ -179,7 +182,6 @@ function Bloqueo(props) {
     }
   };
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -200,7 +202,9 @@ function Bloqueo(props) {
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode"); // Replace with the correct API endpoint
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      ); // Replace with the correct API endpoint
       const huaqueroSymbols = response.data[0].huaqueroSymbols;
 
       console.log("Full Response:", response.data); // Log entire response
@@ -255,7 +259,9 @@ function Bloqueo(props) {
 
   const getUserData = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/users"); // Adjusted the endpoint
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/users"
+      ); // Adjusted the endpoint
       const users = response.data;
       const user = users.find((u) => u._id === userId); // Assuming each user object has an _id field
 
@@ -307,12 +313,21 @@ function Bloqueo(props) {
   };
 
   return (
-    <>
+    <div>
       <div className="info_juegoAntropologo">
         <h1 className="info_juegoAntropologoTitulo">Descifra las palabras</h1>
         <p className="centrarParrafo">
           Solicita al intérprete las palabras claves
         </p>
+        {!areAllInputsCorrect ? (
+          <button className="btnAntropologo" disabled>
+            Continuar
+          </button>
+        ) : (
+          <Link to={`/juego/`} className="btnAntropologo" onClick={handleClick}>
+            Continuar
+          </Link>
+        )}
       </div>
       <div className="fondoAmarillo">
         <div className="contentMinijuego">
@@ -327,24 +342,8 @@ function Bloqueo(props) {
             />
           ))}
         </div>
-        {!areAllInputsCorrect ? (
-          <button
-            className="btnAntropologo"
-            disabled
-          >
-            Continuar
-          </button>
-        ) : (
-          <Link
-            to={`/juego/`}
-            className="btnAntropologo"
-            onClick={handleClick}
-          >
-            Continuar
-          </Link>
-        )}
       </div>
-    </>
+    </div>
   );
 }
 

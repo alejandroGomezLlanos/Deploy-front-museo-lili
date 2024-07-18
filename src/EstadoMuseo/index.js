@@ -49,11 +49,14 @@ function EstadoMuseo() {
           // Start the interval only after the activeRoomCode has been set.
           intervalId = setInterval(async () => {
             const numOfUsers = await findNFilterUsers(data); // pass the fetched room code directly
+
+            // Check if all roles are confirmed
             if (guia && huaquero && interprete && antropologo) {
               setAllRolesConfirmed(true);
             }
-            // Clear the interval if 4 users are found
-            if (numOfUsers >= 4) clearInterval(intervalId);
+
+            // Log the number of users for debugging
+            console.log("Number of users:", numOfUsers);
           }, 3000);
         } else {
           console.error("No room data received");
