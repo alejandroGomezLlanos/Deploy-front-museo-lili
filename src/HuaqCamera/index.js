@@ -84,7 +84,7 @@ function HuaqCamera() {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("http://172.16.20.198:3500/roomCode");
+      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
