@@ -85,7 +85,7 @@ function HuaqCamera() {
   const getCurrentRoom = async () => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       const currentRoomArray = response.data;
 
@@ -116,7 +116,7 @@ function HuaqCamera() {
   const findNFilterUsers = async (roomCode) => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/users"
+        "http://172.16.20.198:3500/users"
       );
       const users = response.data;
       const matchedUsers = users.filter((u) => u.codigoSala === roomCode);
@@ -188,7 +188,7 @@ function HuaqCamera() {
   const fetchRoomCode = async () => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       console.log("Code: ", response.data[0].code); // Log entire response
       if (response.data.length > 0 && response.data[0].code) {
@@ -202,7 +202,7 @@ function HuaqCamera() {
   const addSymbol = async (symbolName) => {
     try {
       const response = await axios.post(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode",
+        "http://172.16.20.198:3500/roomCode",
         {
           huaqueroSymbols: {
             name: symbolName,
@@ -220,7 +220,7 @@ function HuaqCamera() {
   const fetchSymbols = async () => {
     try {
       const response = await axios.get(
-        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+        "http://172.16.20.198:3500/roomCode"
       );
       setSymbols(response.data[0].huaqueroSymbols); // Assuming the symbols are stored in an array inside the response
     } catch (error) {

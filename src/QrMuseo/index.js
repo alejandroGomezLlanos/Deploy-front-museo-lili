@@ -41,7 +41,7 @@ function QrMuseo() {
     fetchRoomData();
 
     // Establecer un intervalo para obtener datos de la sala cada 10 segundos
-    intervalRef.current = setInterval(fetchRoomData, 10 * 1000);
+    intervalRef.current = setInterval(fetchRoomData, 3 * 1000);
 
     // Limpiar el intervalo cuando el componente se desmonta
     return () => {
@@ -70,7 +70,7 @@ function QrMuseo() {
             {roomCode && (
               <>
                 <QRCode
-                  value="https://cultural-change-psi.vercel.app/"
+                  value="https://smigc.vercel.app/"
                   size={300}
                   bgColor="#c98686"
                   fgColor="#000"
