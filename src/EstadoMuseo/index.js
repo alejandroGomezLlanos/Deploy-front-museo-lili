@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./EstadoMuseo.css";
 import fondo from "./resources/Estado.png";
-import GuiaLogo from "./resources/GuiaLogo.png";
-import HuaqueroLogo from "./resources/HuaqueroLogo.png";
-import InterpreteLogo from "./resources/InterpreteLogo.png";
-import AntropologoLogo from "./resources/AntropologoLogo.png";
-import GuiaLogoNo from "./resources/GuiaNo.png";
-import HuaqueroLogoNo from "./resources/HuaqueroNo.png";
-import InterpreteLogoNo from "./resources/InterpreteNo.png";
-import AntropologoLogoNo from "./resources/AntropologoNo.png";
+import GuiaLogo from "./resources/logoGuia.png";
+import HuaqueroLogo from "./resources/logoHuaquero.png";
+import InterpreteLogo from "./resources/logoInterprete.png";
+import AntropologoLogo from "./resources/logoAntropologo.png";
+import GuiaLogoNo from "./resources/logoGuiaBN.png";
+import HuaqueroLogoNo from "./resources/logoHuaqueroBN.png";
+import InterpreteLogoNo from "./resources/logoInterpreteBN.png";
+import AntropologoLogoNo from "./resources/logoAntropologoBN.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -34,6 +34,8 @@ function EstadoMuseo() {
 
   const intervalRef = useRef(null);
 
+  const [allRolesConfirmed, setAllRolesConfirmed] = useState(false);
+
   useEffect(() => {
     let intervalId;
 
@@ -47,7 +49,9 @@ function EstadoMuseo() {
           // Start the interval only after the activeRoomCode has been set.
           intervalId = setInterval(async () => {
             const numOfUsers = await findNFilterUsers(data); // pass the fetched room code directly
-
+            if (guia && huaquero && interprete && antropologo) {
+              setAllRolesConfirmed(true);
+            }
             // Clear the interval if 4 users are found
             if (numOfUsers >= 4) clearInterval(intervalId);
           }, 3000);
@@ -64,12 +68,6 @@ function EstadoMuseo() {
     // Clear the interval when the component is unmounted.
     return () => clearInterval(intervalId);
   }, []);
-
-  useEffect(() => {
-    if (isRoomFull) {
-      navigate("/revisarCelular");
-    }
-  }, [isRoomFull, navigate]);
 
   const getCurrentRoom = async () => {
     try {
@@ -170,6 +168,9 @@ function EstadoMuseo() {
             default:
               console.error("Unknown user role:", user.rol);
           }
+          if (guia && huaquero && interprete && antropologo) {
+            setAllRolesConfirmed(true);
+          }
         });
       } else {
         console.log("No users found with room code", roomCode);
@@ -180,6 +181,16 @@ function EstadoMuseo() {
       console.error("Error fetching and filtering users:", error);
     }
   };
+
+  useEffect(() => {
+    if (isRoomFull && allRolesConfirmed) {
+      const timer = setTimeout(() => {
+        navigate("/revisarCelular");
+      }, 3000); // Espera 3 segundos antes de redirigir
+
+      return () => clearTimeout(timer); // Limpia el temporizador si el componente se desmonta
+    }
+  }, [isRoomFull, allRolesConfirmed, navigate]);
 
   return (
     <div
@@ -224,6 +235,13 @@ function EstadoMuseo() {
             <p>{antropologo ? antropologoName : "?"}</p>
           </div>
         </div>
+      </div>
+      <div>
+        {isRoomFull && allRolesConfirmed && (
+          <div className="confirmation-message">
+            Todos los roles están confirmados. Serás redirigido en breve...
+          </div>
+        )}
       </div>
     </div>
   );
