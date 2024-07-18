@@ -70,7 +70,7 @@ function QrMuseo() {
             {roomCode && (
               <>
                 <QRCode
-                  value="https://cultural-change-psi.vercel.app/"
+                  value="https://smigc.vercel.app/"
                   size={300}
                   bgColor="#c98686"
                   fgColor="#000"

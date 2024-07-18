@@ -71,6 +71,7 @@ function App() {
             <Route path="/" element={<InputCodigo />} />
 
             <Route path="/museo" element={<PantallaMuseo />} />
+            
             <Route path="/MuseoInduccion" element={<MuseoInduccion />} />
             <Route path="/animacionMuseo" element={<AnimacionMuseo />} />
             <Route path="/qrMuseo" element={<QrMuseo />} />
