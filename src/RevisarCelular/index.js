@@ -15,27 +15,43 @@ function RevisarCelular() {
         { time: 600 }
       );
       console.log("Time updated successfully to 600");
+      return true;
     } catch (error) {
       console.error("Error updating time to 600:", error);
+      return false;
+    }
+  };
+
+  const fetchTime = async () => {
+    try {
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/time"
+      );
+      const time = response.data.time;
+      console.log("Current time from backend:", time);
+      return time;
+    } catch (error) {
+      console.error("Error fetching time:", error);
+      return 0;
     }
   };
 
   useEffect(() => {
-    const handleTimeout = async () => {
-      await updateTime(); // Espera a que se complete la actualización del tiempo
-      handleSubmit();
+    const updateAndFetchTime = async () => {
+      const updateSuccess = await updateTime();
+      if (updateSuccess) {
+        const time = await fetchTime();
+        if (time !== 0) {
+          setTimeout(() => {
+            navigate("/fraseMuseo");
+          }, 15000); // Redirige después de 15 segundos
+        }
+      }
     };
 
-    const timer = setTimeout(handleTimeout, 15000); // 15,000 milisegundos = 15 segundos
+    updateAndFetchTime();
+  }, [navigate]);
 
-    return () => {
-      clearTimeout(timer); // Limpia el temporizador si el componente se desmonta antes de que se cumplan los 15 segundos
-    };
-  }, []);
-
-  const handleSubmit = (e) => {
-    navigate("/fraseMuseo");
-  };
 
   return (
     <div className="cont-infocel" style={{ backgroundImage: `url(${fondo})` }}>
