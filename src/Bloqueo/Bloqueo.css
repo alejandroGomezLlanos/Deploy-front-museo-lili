@@ -15,6 +15,13 @@
     margin-top: 4px;
 }
 
+.info_juegoAntropologo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* Add some padding to make space for the fixed title */
+}
+
 .info_juegoAntropologoTitulo {
     position: fixed;
     top: 0;
@@ -40,11 +47,8 @@
 margin: 0 !important;
 font-size: 31px !important;
 }
+
 .btnAntropologo {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     text-decoration: none;
     text-align: center;
     margin-top: 0; /* Remove the margin-top */
@@ -53,9 +57,18 @@ font-size: 31px !important;
     color: #432B18; /* Example text color */
     padding: 10px; /* Example padding */
     font-family: 'ABeeZee', sans-serif; /* Example font family */
-    font-size: 20px; /* Example font size */
+    font-size: 5vw; /* Scale the font size based on the viewport width */
     border: none; /* Remove border */
     border-radius: 10px; /* Example border radius */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Style for the button when it is disabled */
+.btnAntropologo[disabled] {
+    background-color: transparent; /* Make the background transparent */
+    color: #432B18; /* Keep the text color same */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    opacity: 0.5; /* Lower opacity to indicate disabled state */
 }
 
 .textoAcronimo{

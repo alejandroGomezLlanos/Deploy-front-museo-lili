@@ -12,6 +12,8 @@ p{
     text-align: initial;
     margin: 0;
 }
-.centrarParrafo{
+.centrarParrafo {
     text-align: center;
+    top: 50px; /* Adjust this value to move the paragraph down */
+    z-index: 9; /* Ensure it stays below the title */
 }
