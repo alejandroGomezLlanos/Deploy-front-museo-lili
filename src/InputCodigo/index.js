@@ -136,7 +136,7 @@ function InputCodigo() {
     }
 
     // Check if email contains "@" and ".com"
-    if (!userData.email.includes("@") || !userData.email.endsWith(".com")) {
+    if (!userData.email.includes("@") || !(userData.email.endsWith(".com") || userData.email.endsWith(".co"))) {
       return false;
     }
 

@@ -61,7 +61,7 @@ function QrMuseo() {
     <div className="container-qr-museo" style={{ backgroundImage: `url(${fondo})` }}>
       <div className="texto-contenedor">
         <div className="texto-informacion">
-          <div className="linea-texto">Lee el código QR o ingresa</div>
+          <div className="linea-texto">Lee el código QR e ingresa</div>
           <div className="linea-texto">el código de la sala.</div>
         </div>
 
