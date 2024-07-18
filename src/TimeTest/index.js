@@ -40,7 +40,7 @@ function TimeTest() {
     try {
       const response = await axios.patch(
         "https://testdeploy-production-9d97.up.railway.app/time",
-        { time: 30 }
+        { time: 5 }
       );
       console.log(`Time updated successfully to ${time}`);
     } catch (error) {
