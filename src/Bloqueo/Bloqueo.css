@@ -1,134 +1,123 @@
-.input_acronimo{
-    border-radius: 23px;
-    height: 30px;
-    border-color: #523115;
-    background: #FED158;
-    font-size: 29px;
-    width: 170px;
-    color: #523115;
-    padding: 5px 2px 5px 10px;
+.input_acronimo {
+  border-radius: 23px;
+  height: 30px;
+  border-color: #523115;
+  background: #fed158;
+  font-size: 29px;
+  width: 170px;
+  color: #523115;
+  padding: 5px 2px 5px 10px;
 }
-.mensajeError{
-    font-size: 11px;
-    color: red;
-    font-weight: 500;
-    margin-top: 4px;
+.mensajeError {
+  font-size: 11px;
+  color: red;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 .info_juegoAntropologo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px; /* Add some padding to make space for the fixed title */
+  font-family: "ABeeZee", sans-serif;
+  color: #75553B;
+  text-align: center;
 }
 
 .info_juegoAntropologoTitulo {
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 31px !important;
-    margin-top: 0; /* Remove margin-top */
-    text-align: center; /* Center text within its container */
-    width: 100%; /* Ensure it stretches across the width of the screen */
-    padding: 10px; /* Add some padding if needed */
-    background-color: #fff; /* Example background color for better visibility */
-    z-index: 10; /* Ensure it stays above other content */
+  font-family: "ABeeZee", sans-serif;
+  color: #75553B;
+  text-align: center;
 }
 
 .verde {
-    color: green;
+  color: green;
 }
 
 .rojo {
-    color: red;
+  color: red;
 }
-.tituloAntropologo{
-margin: 0 !important;
-font-size: 31px !important;
+.tituloAntropologo {
+  margin: 0 !important;
+  font-size: 31px !important;
 }
 
 .btnAntropologo {
-    text-decoration: none;
-    text-align: center;
-    margin-top: 0; /* Remove the margin-top */
-    width: 100%; /* Ensure the button stretches across the width of the screen */
-    background-color: #EE8249; /* Example background color */
-    color: #432B18; /* Example text color */
-    padding: 10px; /* Example padding */
-    font-family: 'ABeeZee', sans-serif; /* Example font family */
-    font-size: 5vw; /* Scale the font size based on the viewport width */
-    border: none; /* Remove border */
-    border-radius: 10px; /* Example border radius */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  text-decoration: none;
+  text-align: center;
+  margin-top: 20px; /* Add some margin to separate the button from the paragraph */
+  width: 100%;
+  background-color: #ee8249;
+  color: #432b18;
+  padding: 10px;
+  font-family: "ABeeZee", sans-serif;
+  font-size: 5vw;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 /* Style for the button when it is disabled */
 .btnAntropologo[disabled] {
-    background-color: transparent; /* Make the background transparent */
-    color: #432B18; /* Keep the text color same */
-    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
-    opacity: 0.5; /* Lower opacity to indicate disabled state */
+  background-color: transparent;
+  color: #432b18;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
-.textoAcronimo{
-    -webkit-text-stroke: 1px #523115;
-    font-size: 35px;
-    margin: 9px;
-    color: #523115;
-    font-family: 'ABeeZee', sans-serif;
+.textoAcronimo {
+  -webkit-text-stroke: 1px #523115;
+  font-size: 35px;
+  margin: 9px;
+  color: #523115;
+  font-family: "ABeeZee", sans-serif;
 }
-.contenedorAcronimo{
-    margin-top: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.contenedorAcronimo {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .error-animation {
-    animation: shake 0.3s ease-in-out 5 alternate;
-    border: 1px solid red;
+  animation: shake 0.3s ease-in-out 5 alternate;
+  border: 1px solid red;
 }
 
 /* Definición de la animación de temblor */
 @keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25%, 75% {
-        transform: translateX(-10px);
-    }
-    50% {
-        transform: translateX(10px);
-    }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
 }
 
 .input-success {
-    box-shadow: 0 0 10px #00ff00; /* Cambia el color y el tamaño del resplandor según tus preferencias */
-    animation: glow 1s infinite alternate;
+  box-shadow: 0 0 10px #00ff00; /* Cambia el color y el tamaño del resplandor según tus preferencias */
+  animation: glow 1s infinite alternate;
 }
 
 @keyframes glow {
-    0% {
-        box-shadow: 0 0 10px #00ff00;
-    }
-    20% {
-        box-shadow: none;
-    }
-    40% {
-        box-shadow: 0 0 10px #00ff00;
-    }
-    60% {
-        box-shadow: none;
-    }
-    80% {
-        box-shadow: 0 0 10px #00ff00;
-    }
-    100% {
-        box-shadow: none;
-    }
+  0% {
+    box-shadow: 0 0 10px #00ff00;
+  }
+  20% {
+    box-shadow: none;
+  }
+  40% {
+    box-shadow: 0 0 10px #00ff00;
+  }
+  60% {
+    box-shadow: none;
+  }
+  80% {
+    box-shadow: 0 0 10px #00ff00;
+  }
+  100% {
+    box-shadow: none;
+  }
 }
-
-
-
-

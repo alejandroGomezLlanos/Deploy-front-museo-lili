@@ -314,9 +314,10 @@ function Bloqueo(props) {
 
   return (
     <div>
-      <div className="info_juegoAntropologo">
+      <Header></Header>
+      <div>
         <h1 className="info_juegoAntropologoTitulo">Descifra las palabras</h1>
-        <p className="centrarParrafo">
+        <p className="info_juegoAntropologo">
           Solicita al intérprete las palabras claves
         </p>
         {!areAllInputsCorrect ? (

@@ -84,7 +84,9 @@ function HuaqCamera() {
 
   const getCurrentRoom = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode");
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      );
       const currentRoomArray = response.data;
 
       if (currentRoomArray && currentRoomArray.length > 0) {
@@ -241,11 +243,10 @@ function HuaqCamera() {
   };
 
   const previewStyle = {
-    height: "40%",
-    maxwidth: "40%",
-    width: "auto",
-    borderRadius: "30px", // Añade bordes redondeados
-    overflow: "hidden", // Oculta cualquier contenido que se desborde del contenedor
+    width: "100vw",
+    height: "100vh",
+    borderRadius: "30px", // Eliminar bordes redondeados
+    overflow: "hidden", // Ocultar cualquier contenido que se desborde del contenedor
   };
 
   const videoConstraints = {
@@ -256,9 +257,8 @@ function HuaqCamera() {
     <div>
       <Header></Header>
       <div>
-        <p className="parrafoInferior margen">
-          Escanea el código QR. Ten cuidado. Debes escanear el codigo correcto.
-        </p>
+        <h1 className="parrafoInferior1 margen">Escanea el QR.</h1>
+        <p className="parrafoInferior2">Debes escanear el codigo correcto.</p>
       </div>
 
       <div className="fondoAmarillo">

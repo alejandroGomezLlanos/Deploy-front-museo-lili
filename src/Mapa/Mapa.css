@@ -69,12 +69,22 @@
     }
 }
 .parrafoInferior{
-    font-size: 16px;
+    font-family: 'ABeeZee', sans-serif;
+    color: #424242;
+    text-align: center;
+}
+.parrafoInferior1{
     font-family: 'ABeeZee', sans-serif;
     color: #75553B;
     text-align: center;
-
 }
+
+.parrafoInferior2{
+    font-family: 'ABeeZee', sans-serif;
+    color: #424242;
+    text-align: center;
+}
+
 .titulosGuia{
     color: #75553B;
     font-size: 34px;
