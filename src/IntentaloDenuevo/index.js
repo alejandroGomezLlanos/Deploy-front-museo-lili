@@ -15,7 +15,9 @@ function IntentaloDenuevo({ historia }) {
   return (
     <div className="contIntentalo" style={{ backgroundImage: `url(${fondo})` }}>
       <div className="divIntentalo">
-        <h1>Inténtalo de nuevo</h1>
+        <h1>¡Inténtalo de nuevo!</h1>
+        <p className="text1">Estamos seguros de que esta vez lo</p>
+        <p className="text2">harás aún mejor. ¡Buena suerte!</p>
         <button className="btnContinuar" onClick={handleContinuarClick}>
           Continuar
         </button>

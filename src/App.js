@@ -56,6 +56,7 @@ import { HuaqSymbol20 } from "./HuaqSymbol20";
 import { HuaqQR } from "./HuaqQR/index.js";
 import { HuaqCamera } from "./HuaqCamera/index.js";
 import { TimeTest } from "./TimeTest/index.js";
+import { EsperarCelular } from "./EsperarCelular/index.js";
 
 function App() {
   return (
@@ -71,7 +72,7 @@ function App() {
             <Route path="/" element={<InputCodigo />} />
 
             <Route path="/museo" element={<PantallaMuseo />} />
-            
+
             <Route path="/MuseoInduccion" element={<MuseoInduccion />} />
             <Route path="/animacionMuseo" element={<AnimacionMuseo />} />
             <Route path="/qrMuseo" element={<QrMuseo />} />
@@ -165,6 +166,11 @@ function App() {
             <Route path="/HuaqQR" element={<HuaqQR />} />
 
             <Route path="/TimeTest" element={<TimeTest />} />
+
+            <Route
+              path="/EsperarCelular"
+              element={<EsperarCelular historia={1} />}
+            />
           </Routes>
         </MyContextProvider>
       </HashRouter>
