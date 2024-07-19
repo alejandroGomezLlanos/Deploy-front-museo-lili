@@ -262,6 +262,7 @@ function HuaqCamera() {
       </div>
 
       <div className="fondoAmarillo">
+        
         <QrScanner
           delay={300}
           style={previewStyle}
