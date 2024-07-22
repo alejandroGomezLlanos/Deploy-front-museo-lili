@@ -9,7 +9,7 @@ function TimeTest() {
     try {
       // Obtener el código de la sala
       const response = await axios.get(
-        "https://172.16.20.198:3500/time"
+        "https://172.16.20.198:80/time"
       );
       setTime(response.data[0].time);
       
@@ -39,7 +39,7 @@ function TimeTest() {
   const updateTime = async (time) => {
     try {
       const response = await axios.patch(
-        "https://172.16.20.198:3500/time",
+        "https://172.16.20.198:80/time",
         { time: 5 }
       );
       console.log(`Time updated successfully to ${time}`);
