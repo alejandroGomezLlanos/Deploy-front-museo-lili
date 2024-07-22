@@ -8,7 +8,7 @@ function TablaPuntuacion() {
   const [orderBy, setOrderBy] = useState('asc'); // Puedes usar 'asc' o 'desc' para ordenar
 
   useEffect(() => {
-    // Hacer una petición HTTP a la API para obtener los objetos desde MongoDB
+    // Hacer una peticiï¿½n HTTP a la API para obtener los objetos desde MongoDB
     axios.get("/users")
       .then(response => {
         console.log("conectado");
@@ -63,7 +63,7 @@ function TablaPuntuacion() {
     return encryptedData;
   } catch (error) {
     console.error('Error al desencriptar datos:', error);
-    return "Error en desencriptación";
+    return "Error en desencriptaciï¿½n";
   }
   };
 
@@ -80,7 +80,7 @@ function TablaPuntuacion() {
       <ul>
         {sortedObjects.map((group, index) => (
           <li key={index}>
-            <h2>Código Sala: {group.codigoSala}</h2>
+            <h2>Cï¿½digo Sala: {group.codigoSala}</h2>
             <ul>
               {group.usuarios.map((user) => (
                 <li key={user._id}>
