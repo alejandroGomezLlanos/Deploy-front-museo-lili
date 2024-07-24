@@ -52,10 +52,10 @@ import { simbolos } from "../rolesdata.js";
 import { Contexto } from "../Contexto";
 import { Acumulador } from "./Acumulador";
 
-import useSound from 'use-sound';
-import tap from './audios/sonidotab.mp3';
-import pierdenSonido from './audios/sonidoincorrecto.mp3';
-import gananSonido from './audios/sonido.exito.pares2.mp3';
+import useSound from "use-sound";
+import tap from "./audios/sonidotab.mp3";
+import pierdenSonido from "./audios/sonidoincorrecto.mp3";
+import gananSonido from "./audios/sonido.exito.pares2.mp3";
 
 // Agrega más imágenes según la cantidad de elementos en tu array original
 
@@ -241,14 +241,16 @@ const Minijuego = (props) => {
     const intervalId = setInterval(() => {
       fetchSymbols();
       console.log(encontrados);
-    }, 10000); // Check every 10 seconds
+    }, 3000); // Check every 10 seconds
 
     return () => clearInterval(intervalId); // Clear the interval on unmount
   }, []);
 
   const fetchSymbols = async () => {
     try {
-      const response = await axios.get("https://testdeploy-production-9d97.up.railway.app/roomCode"); // Replace with the correct API endpoint
+      const response = await axios.get(
+        "https://testdeploy-production-9d97.up.railway.app/roomCode"
+      ); // Replace with the correct API endpoint
       console.log("Full Response:", response.data); // Log entire response
       const symbols = response.data[0].huaqueroSymbols; // Assuming the symbols are stored in an array inside the response
       const newEncontrados = [false, false, false, false];
@@ -367,7 +369,7 @@ const Minijuego = (props) => {
     }
     setAnagramas(nuevosAnagramas);
   }
-  
+
   const cambiarEstados = (positionInImageList) => {
     if (positionInImageList < 4) {
       switch (positionInImageList) {
@@ -468,23 +470,19 @@ const Minijuego = (props) => {
     return aux;
   };
 
-
   const [playSound] = useSound(tap);
   const [sonidoPierden] = useSound(pierdenSonido);
   const [sonidoGanan] = useSound(gananSonido);
 
-
   return (
     <>
-    <Header></Header>
+      <Header></Header>
       <Contexto
         titulo="Descubre los símbolos"
         parrafo="Ten cuidado, si descubres símbolos diferentes a los que el Huaquero te mostró, perderás los que has descubierto"
       ></Contexto>
       <div className="fondoAmarillo">
-
         <div className="contentMinijuego">
-          
           <button
             className="btnInterpreteSlide"
             onClick={cambiarComponenteInterprete}
@@ -515,16 +513,15 @@ const Minijuego = (props) => {
               />
             )}
           </button>
-
         </div>
 
         <Acumulador
-        historia={props.historia}
-        encontrado1={encontrados[0]}
-        encontrado2={encontrados[1]}
-        encontrado3={encontrados[2]}
-        encontrado4={encontrados[3]}
-      />
+          historia={props.historia}
+          encontrado1={encontrados[0]}
+          encontrado2={encontrados[1]}
+          encontrado3={encontrados[2]}
+          encontrado4={encontrados[3]}
+        />
       </div>
     </>
   );

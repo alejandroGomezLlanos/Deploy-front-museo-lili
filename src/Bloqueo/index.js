@@ -224,7 +224,7 @@ function Bloqueo(props) {
     const intervalId = setInterval(() => {
       fetchSymbols();
       console.log(encontrados);
-    }, 10000); // Check every 10 seconds
+    }, 3000); // Check every 10 seconds
 
     return () => clearInterval(intervalId); // Clear the interval on unmount
   }, []);
@@ -310,6 +310,7 @@ function Bloqueo(props) {
 
   const handleClick = () => {
     updateState();
+    navigate("/ganan")
   };
 
   return (
@@ -321,11 +322,11 @@ function Bloqueo(props) {
           Solicita al intérprete las palabras claves
         </p>
         {!areAllInputsCorrect ? (
-          <button className="btnAntropologo" disabled>
+          <button onClick={handleClick} className="btnAntropologo" disabled>
             Continuar
           </button>
         ) : (
-          <Link to={`/juego/`} className="btnAntropologo" onClick={handleClick}>
+          <Link to={`/ganan/`} className="btnAntropologo" onClick={handleClick}>
             Continuar
           </Link>
         )}
