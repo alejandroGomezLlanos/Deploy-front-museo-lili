@@ -97,7 +97,7 @@ function App() {
             <Route path="/juego/huaquero" element={<HuaqCamera />} />
             <Route
               path="/juego/interprete"
-              element={<Minijuego historia={1}></Minijuego>}
+              element={<Minijuego historia={3}></Minijuego>}
             />
             <Route
               path="/juego/antropologo"
