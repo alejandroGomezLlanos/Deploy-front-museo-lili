@@ -60,6 +60,7 @@ function EstadoMuseo() {
             // Check if all roles are confirmed
             if (guia && huaquero && interprete && antropologo) {
               setAllRolesConfirmed(true);
+              console.log("All roles confirmed.")
             }
 
             // Log the number of users for debugging
