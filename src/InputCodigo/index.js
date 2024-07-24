@@ -250,7 +250,7 @@ function InputCodigo() {
           setTimeout(() => {
             setSentInformation(false);
             // Redirect to "/introduccion" after showing the modal
-            navigate("/introduccion");
+            navigate("/EsperarCelular");
           }, 2000); // 2 seconds
         } catch (error) {
           console.error("Error registering user:", error.response.data);
