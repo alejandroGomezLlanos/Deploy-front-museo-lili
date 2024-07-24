@@ -157,6 +157,10 @@ function EstadoMuseo() {
             "User Role: ",
             user.rol
           );
+          if (guia && huaquero && interprete && antropologo) {
+            setAllRolesConfirmed(true);
+            console.log("All roles confirmed.");
+          }
 
           // Check user's role, update state, and set name accordingly
           switch (user.rol) {
