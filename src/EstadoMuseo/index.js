@@ -60,7 +60,7 @@ function EstadoMuseo() {
             // Check if all roles are confirmed
             if (guia && huaquero && interprete && antropologo) {
               setAllRolesConfirmed(true);
-              console.log("All roles confirmed.")
+              console.log("All roles confirmed.");
             }
 
             // Log the number of users for debugging
@@ -194,8 +194,13 @@ function EstadoMuseo() {
   };
 
   useEffect(() => {
+    if (guia && huaquero && interprete && antropologo) {
+      setAllRolesConfirmed(true);
+      console.log("All roles confirmed.");
+    }
     if (isRoomFull && allRolesConfirmed) {
       const timer = setTimeout(() => {
+        console.log("Navigating...");
         navigate("/revisarCelular");
       }, 3000); // Espera 3 segundos antes de redirigir
 
