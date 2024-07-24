@@ -37,6 +37,13 @@ function EstadoMuseo() {
   const [allRolesConfirmed, setAllRolesConfirmed] = useState(false);
 
   useEffect(() => {
+    localStorage.setItem("guiaName", guiaName);
+    localStorage.setItem("huaqueroName", huaqueroName);
+    localStorage.setItem("interpreteName", interpreteName);
+    localStorage.setItem("antropologoName", antropologoName);
+  }, [guiaName, huaqueroName, interpreteName, antropologoName]);
+
+  useEffect(() => {
     let intervalId;
 
     const fetchData = async () => {
