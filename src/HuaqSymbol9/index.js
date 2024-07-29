@@ -32,11 +32,11 @@ function HuaqSymbol9({ historia }) {
     console.log(historia);
     let rightsymb = false;
     if (historia === 1) {
-      rightsymb = true;
+      rightsymb = false;
     } else if (historia === 2) {
       rightsymb = false;
     } else if (historia === 3) {
-      rightsymb = false;
+      rightsymb = true;
     } else if (historia === 4) {
       rightsymb = false;
     } else if (historia === 5) {

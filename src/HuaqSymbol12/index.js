@@ -36,9 +36,9 @@ function HuaqSymbol12({ historia }) {
     } else if (historia === 2) {
       rightsymb = false;
     } else if (historia === 3) {
-      rightsymb = false;
-    } else if (historia === 4) {
       rightsymb = true;
+    } else if (historia === 4) {
+      rightsymb = false;
     } else if (historia === 5) {
       rightsymb = false;
     } else {

@@ -40,14 +40,14 @@ function EsperarCelular({ historia }) {
 
   const getImagesForHistoria = (historia) => {
     switch (historia) {
-      case 2:
-        return [simbolo5, simbolo6, simbolo7, simbolo9];
       case 1:
-        return [simbolo1, simbolo2, simbolo3, simbolo4];        
+        return [simbolo1, simbolo2, simbolo3, simbolo4];
+      case 2:
+        return [simbolo5, simbolo6, simbolo7, simbolo8];
       case 3:
-        return [simbolo8, simbolo15, simbolo11, simbolo16];
+        return [simbolo9, simbolo10, simbolo11, simbolo12];
       case 4:
-        return [simbolo10, simbolo12, simbolo13, simbolo14];
+        return [simbolo13, simbolo14, simbolo15, simbolo16];
       case 5:
         return [simbolo17, simbolo18, simbolo19, simbolo20];
       default:
