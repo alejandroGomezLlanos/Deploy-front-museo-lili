@@ -10,16 +10,34 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
 }
 
 table {
-  width: 80%;
-  border-collapse: separate; /* Asegura que los bordes separen las celdas */
-  border-spacing: 5px; /* Espacio entre las celdas */
+  width: 70%;
+  border-collapse: collapse; /* Asegura que los bordes separen las celdas */
+  border-spacing: -6px; /* Espacio entre las celdas */
+} 
+
+th, td {
+  padding: 8px 2px; /* Reduce el padding para que las columnas estén más pegadas */
+  text-align: center; /* Centra el texto en las celdas */
 }
 
-.titulo {
-  color: #432b18;
+th {
+  font-size: 50px;
+  border-bottom: 0px dashed #000000;
+}
+
+td {
+  font-size: 40px;
+  border-bottom: 1px dashed #000000;
+}
+
+
+.titulo-tabla {
+  color: #432B18;
   text-align: center;
   font-family: ABeeZee;
   font-size: 80px;
@@ -27,6 +45,14 @@ table {
   font-weight: 400;
   line-height: 144%;
   letter-spacing: -1.2px;
+  margin-top: -50px;
+}
+
+.texto-tabla {
+  color: #000;
+  font-family: ABeeZee;
+  font-size: 50px;
+  font-weight: 9000;
 }
 
 .encabezado {
@@ -52,22 +78,20 @@ table {
   letter-spacing: -0.48px;
 }
 
-.boton-continuar {
-  padding: 10px 80px;
-  background-color: #ee8249; /* Color de fondo del botón */
-  border: none;
-  border-radius: 5px; /* Borde redondeado del botón */
-  margin-top: 60px; /* Espacio antes del botón */
-  cursor: pointer; /* Cambia el cursor a un puntero */
-  color: #432b18;
-  text-align: center;
-  font-family: ABeeZee;
+.button {
+  margin-top: 200px;
+  padding: 10px 30px;
   font-size: 35px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 130%;
-  letter-spacing: -0.35px;
-  margin-bottom: 30px;
+  background-color: #e94d1a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.button:hover {
+  background-color: #d03c17;
 }
 
 .imagen {

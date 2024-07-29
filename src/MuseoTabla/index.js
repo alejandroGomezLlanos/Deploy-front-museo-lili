@@ -9,6 +9,7 @@ import logoAntropologo from "./resources/logoAntropologo.png";
 function MuseoTabla() {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
+  const [time, setTime] = useState([]);
 
   useEffect(() => {
     // Recuperar la información de localStorage
@@ -16,6 +17,7 @@ function MuseoTabla() {
     const huaqueroName = localStorage.getItem("huaqueroName");
     const interpreteName = localStorage.getItem("interpreteName");
     const antropologoName = localStorage.getItem("antropologoName");
+    const teamTime = localStorage.getItem("compTime");
 
     // Configurar los jugadores con sus respectivos roles
     const jugadores = [
@@ -26,33 +28,57 @@ function MuseoTabla() {
     ];
 
     setPlayers(jugadores);
+    setTime(teamTime);
   }, []);
+
+  const getRoleLogo = (role) => {
+    switch (role) {
+      case "Guía":
+        return logoGuia;
+      case "Huaquero":
+        return logoHuaquero;
+      case "Intérprete":
+        return logoInterprete;
+      case "Antropólogo":
+        return logoAntropologo;
+      default:
+        return null;
+    }
+  };
 
   const handleContinuarClick = () => {
     // Redirigir a la página /museoTablaMejorT al hacer clic en el botón "Continuar"
-    navigate("/museoTablaMejorT");
+    navigate("/museo");
   };
 
   return (
     <div className="container-museo-tabla">
-      <h1>Tabla de Jugadores</h1>
+      <h1 className="titulo-tabla">Tabla de Jugadores</h1>
       <table>
         <thead>
           <tr>
-            <th>Rol</th>
-            <th>Nombre</th>
+            <th className="texto-tabla">Nombre</th>
+            <th className="texto-tabla">Tiempo</th>
+            <th className="texto-tabla">Rol</th>
           </tr>
         </thead>
         <tbody>
           {players.map((player, index) => (
             <tr key={index}>
-              <td>{player.role}</td>
               <td>{player.name}</td>
+              <td>{time}</td>
+              <td>
+                <img
+                  src={getRoleLogo(player.role)}
+                  alt={player.role}
+                  style={{ width: "60px", height: "60px" }}
+                />
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <button className="boton-continuar" onClick={handleContinuarClick}>
+      <button className="button" onClick={handleContinuarClick}>
         Continuar
       </button>
     </div>
