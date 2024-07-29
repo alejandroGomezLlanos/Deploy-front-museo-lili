@@ -18,22 +18,16 @@ function EstadoMuseo() {
   const [huaquero, setHuaquero] = useState(false);
   const [interprete, setInterprete] = useState(false);
   const [antropologo, setAntropologo] = useState(false);
-
   const [guiaName, setGuiaName] = useState("");
   const [huaqueroName, setHuaqueroName] = useState("");
   const [interpreteName, setInterpreteName] = useState("");
   const [antropologoName, setAntropologoName] = useState("");
-
   const [activeRoomCode, setActiveRoomCode] = useState("");
-
   const [isRoomFull, setIsRoomFull] = useState(false);
-
   const navigate = useNavigate();
   const [roomCode, setRoomCode] = useState("");
   const [userCount, setUserCount] = useState(0);
-
   const intervalRef = useRef(null);
-
   const [allRolesConfirmed, setAllRolesConfirmed] = useState(false);
 
   useEffect(() => {
@@ -56,12 +50,6 @@ function EstadoMuseo() {
           // Start the interval only after the activeRoomCode has been set.
           intervalId = setInterval(async () => {
             const numOfUsers = await findNFilterUsers(data); // pass the fetched room code directly
-
-            // Check if all roles are confirmed
-            if (guia && huaquero && interprete && antropologo) {
-              setAllRolesConfirmed(true);
-              console.log("All roles confirmed.");
-            }
 
             // Log the number of users for debugging
             console.log("Number of users:", numOfUsers);
@@ -157,10 +145,6 @@ function EstadoMuseo() {
             "User Role: ",
             user.rol
           );
-          if (guia && huaquero && interprete && antropologo) {
-            setAllRolesConfirmed(true);
-            console.log("All roles confirmed.");
-          }
 
           // Check user's role, update state, and set name accordingly
           switch (user.rol) {
@@ -183,9 +167,6 @@ function EstadoMuseo() {
             default:
               console.error("Unknown user role:", user.rol);
           }
-          if (guia && huaquero && interprete && antropologo) {
-            setAllRolesConfirmed(true);
-          }
         });
       } else {
         console.log("No users found with room code", roomCode);
@@ -198,19 +179,34 @@ function EstadoMuseo() {
   };
 
   useEffect(() => {
-    if (guia && huaquero && interprete && antropologo) {
-      setAllRolesConfirmed(true);
-      console.log("All roles confirmed.");
-    }
+    console.log("Verificando roles y estado de la sala...");
+    console.log("isRoomFull:", isRoomFull);
+    console.log("allRolesConfirmed:", allRolesConfirmed);
+
     if (isRoomFull && allRolesConfirmed) {
+      console.log(
+        "Todos los roles confirmados y la sala está llena. Navegando..."
+      );
       const timer = setTimeout(() => {
-        console.log("Navigating...");
         navigate("/revisarCelular");
       }, 3000); // Espera 3 segundos antes de redirigir
 
       return () => clearTimeout(timer); // Limpia el temporizador si el componente se desmonta
     }
   }, [isRoomFull, allRolesConfirmed, navigate]);
+
+  useEffect(() => {
+    // Cada vez que los estados de roles cambien, verifica si todos están confirmados
+    if (guia && huaquero && interprete && antropologo) {
+      setAllRolesConfirmed(true);
+      console.log(
+        "Todos los roles confirmados: guia, huaquero, interprete, antropologo."
+      );
+    } else {
+      setAllRolesConfirmed(false);
+      console.log("Roles no confirmados completamente.");
+    }
+  }, [guia, huaquero, interprete, antropologo]);
 
   return (
     <div
