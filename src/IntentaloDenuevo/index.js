@@ -10,7 +10,7 @@ function IntentaloDenuevo({ historia }) {
 
   const handleContinuarClick = () => {
     // Redirigir a la página /museo al hacer clic en el botón "Salir"
-    navigate("/museoTablaMejorT");
+    navigate("/museoTabla");
   };
   return (
     <div className="contIntentalo" style={{ backgroundImage: `url(${fondo})` }}>

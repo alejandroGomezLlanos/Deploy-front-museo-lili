@@ -87,7 +87,7 @@ function HuaqCamera() {
 
             // Clear the interval if 4 users are found
             if (numOfUsers >= 5) clearInterval(intervalId);
-          }, 3000);
+          }, 10000);
         } else {
           console.error("No room data received");
         }
