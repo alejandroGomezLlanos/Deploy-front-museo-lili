@@ -58,6 +58,7 @@ import { HuaqCamera } from "./HuaqCamera/index.js";
 import { TimeTest } from "./TimeTest/index.js";
 import { EsperarCelular } from "./EsperarCelular/index.js";
 import { TablaPuntuacion } from "./TablaPuntuacion/index.js";
+import { HuaqConf } from "./HuaqConf/index.js";
 
 function App() {
   return (
@@ -169,6 +170,8 @@ function App() {
             <Route path="/HuaqQR" element={<HuaqQR />} />
 
             <Route path="/TimeTest" element={<TimeTest />} />
+
+            <Route path="/HuaqConf" element={<HuaqConf />} />
 
             <Route
               path="/EsperarCelular"
