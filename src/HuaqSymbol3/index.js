@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import simbolo from "../HuaqCamera/simbolos/simbolo8.png";
+import simbolo from "../Traductor/simbolos/simbolo8.png";
 
 
 function HuaqSymbol3({ historia }) {
