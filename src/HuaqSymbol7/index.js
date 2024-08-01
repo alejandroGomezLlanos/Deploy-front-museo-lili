@@ -1,9 +1,10 @@
-import simbolo from "../Traductor/simbolos/simbolo7.png";
 import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
+import simbolo from "../Traductor/simbolos/simbolo2.png";
+import { trusted } from "mongoose";
 
 function HuaqSymbol7({ historia }) {
   const [rightSymbol, setRightSymbol] = useState(false);
@@ -32,9 +33,9 @@ function HuaqSymbol7({ historia }) {
     console.log(historia);
     let rightsymb = false;
     if (historia === 1) {
-      rightsymb = false;
-    } else if (historia === 2) {
       rightsymb = true;
+    } else if (historia === 2) {
+      rightsymb = false;
     } else if (historia === 3) {
       rightsymb = false;
     } else if (historia === 4) {
