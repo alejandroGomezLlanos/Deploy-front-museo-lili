@@ -3,7 +3,7 @@ import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
-import simbolo from "../Traductor/simbolos/simbolo2.png";
+import simbolo from "../Traductor/simbolos/simbolo7.png";
 import { trusted } from "mongoose";
 
 function HuaqSymbol7({ historia }) {
@@ -33,9 +33,9 @@ function HuaqSymbol7({ historia }) {
     console.log(historia);
     let rightsymb = false;
     if (historia === 1) {
-      rightsymb = true;
-    } else if (historia === 2) {
       rightsymb = false;
+    } else if (historia === 2) {
+      rightsymb = true;
     } else if (historia === 3) {
       rightsymb = false;
     } else if (historia === 4) {

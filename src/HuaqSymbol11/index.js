@@ -1,9 +1,9 @@
-import simbolo from "../Traductor/simbolos/simbolo12.png";
 import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import axios from "axios";
+import simbolo from "../Traductor/simbolos/simbolo11.png";
 
 function HuaqSymbol11({ historia }) {
   const [rightSymbol, setRightSymbol] = useState(false);

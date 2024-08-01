@@ -1,4 +1,4 @@
-import simbolo from "../Traductor/simbolos/simbolo16.png";
+import simbolo from "../Traductor/simbolos/simbolo14.png";
 import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";

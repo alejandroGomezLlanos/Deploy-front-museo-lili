@@ -2,7 +2,6 @@ import simbolo from "../Traductor/simbolos/simbolo17.png";
 import { useNavigate } from "react-router-dom";
 import "./BtnContinuar.css";
 import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
 import axios from "axios";
 
 function HuaqSymbol17({ historia }) {

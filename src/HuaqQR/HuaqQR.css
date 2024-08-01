@@ -1,0 +1,11 @@
+.qr-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* Tres columnas de ancho automático */
+    gap: 10px; /* Reduce la distancia entre columnas */
+    justify-items: start; /* Alinea los códigos QR al inicio (izquierda) */
+  }
+  
+  .qr-code {
+    width: 4cm;
+    height: 4cm;
+  }
