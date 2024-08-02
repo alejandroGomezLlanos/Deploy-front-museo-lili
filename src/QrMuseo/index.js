@@ -11,6 +11,7 @@ function QrMuseo() {
   const [roomCode, setRoomCode] = useState("");
   const [userCount, setUserCount] = useState(0);
   const [isRoomFull, setIsRoomFull] = useState(false);
+  const [isRoomCodeUpdated, setIsRoomCodeUpdated] = useState(false);
 
   const intervalRef = useRef(null);
 
@@ -41,17 +42,19 @@ function QrMuseo() {
   };
 
   useEffect(() => {
-    // Obtener datos de la sala inmediatamente cuando el componente se monta
-    fetchRoomData();
-
-    // Establecer un intervalo para obtener datos de la sala cada 10 segundos
-    intervalRef.current = setInterval(fetchRoomData, 3 * 1000);
-
-    // Limpiar el intervalo cuando el componente se desmonta
-    return () => {
-      clearInterval(intervalRef.current);
-    };
-  }, [roomCode, userCount]);
+    if (isRoomCodeUpdated) {
+      // Obtener datos de la sala inmediatamente cuando el componente se monta
+      fetchRoomData();
+  
+      // Establecer un intervalo para obtener datos de la sala cada 10 segundos
+      intervalRef.current = setInterval(fetchRoomData, 3 * 1000);
+  
+      // Limpiar el intervalo cuando el componente se desmonta
+      return () => {
+        clearInterval(intervalRef.current);
+      };
+    }
+  }, [isRoomCodeUpdated, roomCode, userCount]);
 
   // Redireccionar a /tematicaMuseo cuando la sala está llena
   useEffect(() => {
@@ -87,8 +90,9 @@ function QrMuseo() {
           },
         }
       );
-
+      setIsRoomCodeUpdated(true);
       console.log(`Room code updated to: ${newCode}`);
+      
     } catch (error) {
       console.error("Error updating room code:", error);
     }
