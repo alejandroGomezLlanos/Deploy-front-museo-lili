@@ -29,8 +29,14 @@ function MuseoTabla() {
     ];
 
     setPlayers(jugadores);
-    setTime(teamTime);
+    setTime(formatTime(teamTime));
   }, []);
+
+  const formatTime = (seconds) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+  };
 
   const getRoleLogo = (role) => {
     switch (role) {
