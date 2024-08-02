@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import QrScanner from "react-qr-scanner";
 import "./HuaqCamera.css";
 import { Header } from "../Header";
+import { useNavigate } from "react-router-dom";
 
 function HuaqCamera() {
+  const navigate = useNavigate();
 
   const handleScan = (data) => {
     if (data) {
@@ -28,7 +30,7 @@ function HuaqCamera() {
   };
 
   const handleClick = () => {
-    navigate("/HuaqConf")
+    navigate("/HuaqConf");
   };
 
   // SCANNER //
@@ -39,25 +41,24 @@ function HuaqCamera() {
       <Header />
       <div>
         <h1 className="parrafoInferior1 margen">Escanea el QR.</h1>
-        <p className="parrafoInferior2">Cuando tengas todos los símbolos, pulsa el botón.</p>
+        <p className="parrafoInferior2">
+          Cuando tengas todos los símbolos, pulsa el botón.
+        </p>
       </div>
       <div className="fondoAmarillo">
         <QrScanner
-          delay={300}
+          delay={301}
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
           constraints={videoConstraints}
         />
         <div className="container">
-        <p className="parrafoInferior2 margen">
-          ¿Terminaste? Pulsa el botón
-        </p>
-        <button onClick={handleClick} className="btnContinuar">
-          Continuar
-        </button>
+          <p className="parrafoInferior2 margen">¿Terminaste? Pulsa el botón</p>
+          <button onClick={handleClick} className="btnContinuar">
+            Continuar
+          </button>
         </div>
-
       </div>
     </div>
   );
