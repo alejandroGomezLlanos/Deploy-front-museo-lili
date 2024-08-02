@@ -585,13 +585,15 @@ function FraseMuseo({ historia }) {
 
   const fetchTime = async () => {
     try {
-      // Obtener el código de la sala
+      // Obtener el tiempo desde el backend
       const response = await axios.get(
         "https://testdeploy-production-9d97.up.railway.app/time"
       );
-      setTime(response.data[0].time);
-      
-      if (time === 900) {
+      const fetchedTime = response.data[0].time;
+      setTime(fetchedTime);
+      localStorage.setItem("compTime", fetchedTime); // Guardar el tiempo en localStorage
+  
+      if (fetchedTime === 900) {
         clearInterval(intervalRef.current);
       }
     } catch (error) {

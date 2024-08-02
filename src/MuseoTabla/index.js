@@ -18,6 +18,7 @@ function MuseoTabla() {
     const interpreteName = localStorage.getItem("interpreteName");
     const antropologoName = localStorage.getItem("antropologoName");
     const teamTime = localStorage.getItem("compTime");
+    console.log(teamTime);
 
     // Configurar los jugadores con sus respectivos roles
     const jugadores = [

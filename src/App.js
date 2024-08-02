@@ -111,7 +111,6 @@ function App() {
             <Route path="/intentaloDenuevo" element={<IntentaloDenuevo />} />
             <Route path="/gananMuseo" element={<GananMuseo historia={1} />} />
             <Route path="/museoTabla" element={<MuseoTabla />} />
-            <Route path="/museoTablaMejorT" element={<TablaMuseoMejorT />} />
 
             <Route path="/HuaqSymbol1" element={<HuaqSymbol1 historia={1} />} />
             <Route path="/HuaqSymbol2" element={<HuaqSymbol2 historia={1} />} />
@@ -168,8 +167,6 @@ function App() {
             />
 
             <Route path="/HuaqQR" element={<HuaqQR />} />
-
-            <Route path="/TimeTest" element={<TimeTest />} />
 
             <Route path="/HuaqConf" element={<HuaqConf />} />
 
