@@ -9,7 +9,7 @@ import logoAntropologo from "./resources/logoAntropologo.png";
 function MuseoTabla() {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
-  const [time, setTime] = useState([]);
+  const [time, setTime] = useState();
 
   useEffect(() => {
     // Recuperar la información de localStorage
