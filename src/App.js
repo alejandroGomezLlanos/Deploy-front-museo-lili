@@ -1,4 +1,7 @@
 import "./App.css";
+import React, { useEffect, useState } from "react";
+import { HashRouter, Router, Routes, Route } from "react-router-dom";
+
 import { MyContextProvider } from "./SeleccionCargando/MyContext";
 import { InputCodigo } from "./InputCodigo";
 import { PantallaMuseo } from "./PantallaMuseo";
@@ -14,7 +17,6 @@ import { Minijuego } from "./Traductor/Minijuego.js";
 import { Introduccion } from "./Introduccion";
 import { SeleccionCargando } from "./SeleccionCargando";
 import { Picker } from "./Picker";
-import { HashRouter, Routes, Route } from "react-router-dom";
 import { Bloqueo } from "./Bloqueo";
 import { JuegoHuaquero } from "./JuegoHuaquero";
 import { SymbolsPage } from "./huaquero2AntroTest";
@@ -61,6 +63,40 @@ import { TablaPuntuacion } from "./TablaPuntuacion/index.js";
 import { HuaqConf } from "./HuaqConf/index.js";
 
 function App() {
+  const [historia, setHistoria] = useState(1);
+
+  useEffect(() => {
+    const updateHistoria = () => {
+      const lastUpdate = localStorage.getItem("lastUpdate");
+      const lastHistoria = localStorage.getItem("lastHistoria");
+
+      const now = new Date();
+      const oneDay = 24 * 60 * 60 * 1000;
+
+      if (lastUpdate && lastHistoria) {
+        const lastUpdateDate = new Date(parseInt(lastUpdate, 10));
+
+        if (now - lastUpdateDate >= oneDay) {
+          // Han pasado 24 horas, actualizar la historia
+          const newHistoria = (parseInt(lastHistoria, 10) % 5) + 1;
+          localStorage.setItem("lastHistoria", newHistoria);
+          localStorage.setItem("lastUpdate", now.getTime());
+          setHistoria(newHistoria);
+        } else {
+          // Menos de 24 horas, mantener la historia actual
+          setHistoria(parseInt(lastHistoria, 10));
+        }
+      } else {
+        // No hay datos previos, inicializar
+        localStorage.setItem("lastHistoria", 1);
+        localStorage.setItem("lastUpdate", now.getTime());
+        setHistoria(1);
+      }
+    };
+
+    updateHistoria();
+  }, []);
+
   return (
     <div className="App">
       <HashRouter>
@@ -82,7 +118,7 @@ function App() {
             <Route path="/rolesMuseo" element={<RolesMuseo />} />
             <Route path="/estadoMuseo" element={<EstadoMuseo />} />
             <Route path="/revisarCelular" element={<RevisarCelular />} />
-            <Route path="/fraseMuseo" element={<FraseMuseo historia={1} />} />
+            <Route path="/fraseMuseo" element={<FraseMuseo historia={historia} />} />
 
             <Route path="/tematicaMuseo2" element={<TematicaMuseo2 />} />
 
@@ -94,76 +130,76 @@ function App() {
 
             <Route path="/TablaPuntuacion" element={<TablaPuntuacion />} />
 
-            <Route path="/juego/guia" element={<Mapa historia={1} />} />
+            <Route path="/juego/guia" element={<Mapa historia={historia} />} />
             <Route path="/juego/huaquero" element={<HuaqCamera />} />
             <Route
               path="/juego/interprete"
-              element={<Minijuego historia={1}></Minijuego>}
+              element={<Minijuego historia={historia}></Minijuego>}
             />
             <Route
               path="/juego/antropologo"
-              element={<Bloqueo historia={1}></Bloqueo>}
+              element={<Bloqueo historia={historia}></Bloqueo>}
             />
 
             <Route path="/pierden" element={<FeedbackNegativo />} />
             <Route path="/ganan" element={<FeedbackPositivo />} />
 
             <Route path="/intentaloDenuevo" element={<IntentaloDenuevo />} />
-            <Route path="/gananMuseo" element={<GananMuseo historia={1} />} />
+            <Route path="/gananMuseo" element={<GananMuseo historia={historia} />} />
             <Route path="/museoTabla" element={<MuseoTabla />} />
 
-            <Route path="/HuaqSymbol1" element={<HuaqSymbol1 historia={1} />} />
-            <Route path="/HuaqSymbol2" element={<HuaqSymbol2 historia={1} />} />
-            <Route path="/HuaqSymbol3" element={<HuaqSymbol3 historia={1} />} />
-            <Route path="/HuaqSymbol4" element={<HuaqSymbol4 historia={1} />} />
-            <Route path="/HuaqSymbol5" element={<HuaqSymbol5 historia={1} />} />
-            <Route path="/HuaqSymbol6" element={<HuaqSymbol6 historia={1} />} />
-            <Route path="/HuaqSymbol7" element={<HuaqSymbol7 historia={1} />} />
-            <Route path="/HuaqSymbol8" element={<HuaqSymbol8 historia={1} />} />
-            <Route path="/HuaqSymbol9" element={<HuaqSymbol9 historia={1} />} />
+            <Route path="/HuaqSymbol1" element={<HuaqSymbol1 historia={historia} />} />
+            <Route path="/HuaqSymbol2" element={<HuaqSymbol2 historia={historia} />} />
+            <Route path="/HuaqSymbol3" element={<HuaqSymbol3 historia={historia} />} />
+            <Route path="/HuaqSymbol4" element={<HuaqSymbol4 historia={historia} />} />
+            <Route path="/HuaqSymbol5" element={<HuaqSymbol5 historia={historia} />} />
+            <Route path="/HuaqSymbol6" element={<HuaqSymbol6 historia={historia} />} />
+            <Route path="/HuaqSymbol7" element={<HuaqSymbol7 historia={historia} />} />
+            <Route path="/HuaqSymbol8" element={<HuaqSymbol8 historia={historia} />} />
+            <Route path="/HuaqSymbol9" element={<HuaqSymbol9 historia={historia} />} />
             <Route
               path="/HuaqSymbol10"
-              element={<HuaqSymbol10 historia={1} />}
+              element={<HuaqSymbol10 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol11"
-              element={<HuaqSymbol11 historia={1} />}
+              element={<HuaqSymbol11 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol12"
-              element={<HuaqSymbol12 historia={1} />}
+              element={<HuaqSymbol12 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol13"
-              element={<HuaqSymbol13 historia={1} />}
+              element={<HuaqSymbol13 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol14"
-              element={<HuaqSymbol14 historia={1} />}
+              element={<HuaqSymbol14 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol15"
-              element={<HuaqSymbol15 historia={1} />}
+              element={<HuaqSymbol15 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol16"
-              element={<HuaqSymbol16 historia={1} />}
+              element={<HuaqSymbol16 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol17"
-              element={<HuaqSymbol17 historia={1} />}
+              element={<HuaqSymbol17 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol18"
-              element={<HuaqSymbol18 historia={1} />}
+              element={<HuaqSymbol18 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol19"
-              element={<HuaqSymbol19 historia={1} />}
+              element={<HuaqSymbol19 historia={historia} />}
             />
             <Route
               path="/HuaqSymbol20"
-              element={<HuaqSymbol20 historia={1} />}
+              element={<HuaqSymbol20 historia={historia} />}
             />
 
             <Route path="/HuaqQR" element={<HuaqQR />} />
@@ -172,7 +208,7 @@ function App() {
 
             <Route
               path="/EsperarCelular"
-              element={<EsperarCelular historia={1} />}
+              element={<EsperarCelular historia={historia} />}
             />
           </Routes>
         </MyContextProvider>
