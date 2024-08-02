@@ -177,14 +177,18 @@ function InputCodigo() {
 
   const handleValidationErrorEmail = () => {
     const newErrors = {};
-
-    // Regular expression pattern checks for "@" and either ".com" or ".co" domains
+  
+    // Regular expression pattern checks for a valid email format
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(com|co)$/;
-
-    if (!emailPattern.test(userData.email)) {
-      newErrors.email = "El email debe contener '@' y 'gmail.com' o '.co'";
+  
+    if (!userData.email.includes("@")) {
+      newErrors.email = "El email debe contener '@'";
+    } else if (!(userData.email.endsWith(".com") || userData.email.endsWith(".co"))) {
+      newErrors.email = "El email debe terminar en 'gmail.com' o '.co'";
+    } else if (!emailPattern.test(userData.email)) {
+      newErrors.email = "Formato de email no válido";
     }
-
+  
     setErrorEmail(newErrors);
   };
 
