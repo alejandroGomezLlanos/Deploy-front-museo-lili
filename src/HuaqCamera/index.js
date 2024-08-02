@@ -27,6 +27,10 @@ function HuaqCamera() {
     video: { facingMode: "environment" },
   };
 
+  const handleClick = () => {
+    navigate("/HuaqConf")
+  };
+
   // SCANNER //
   const [scanResult, setScanResult] = useState("");
 
@@ -49,7 +53,7 @@ function HuaqCamera() {
         <p className="parrafoInferior2 margen">
           ¿Terminaste? Pulsa el botón
         </p>
-        <button className="btnContinuar">
+        <button onClick={handleClick} className="btnContinuar">
           Continuar
         </button>
         </div>
