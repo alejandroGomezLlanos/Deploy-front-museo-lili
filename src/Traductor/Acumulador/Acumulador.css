@@ -32,7 +32,6 @@
     }
 }
 
-
 .txtAcumulador{
     font-size: 16px;
     color: #432B18;
@@ -54,5 +53,5 @@
     width: 95px;
 }
 .imgAnagramaBlock{
-    width: 150px;
+    width: 80px;
 }

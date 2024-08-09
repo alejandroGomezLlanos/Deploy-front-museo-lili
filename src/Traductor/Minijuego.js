@@ -479,7 +479,7 @@ const Minijuego = (props) => {
       <Header></Header>
       <Contexto
         titulo="Descubre los símbolos"
-        parrafo="Ten cuidado, si descubres símbolos diferentes a los que el Huaquero te mostró, perderás los que has descubierto"
+        parrafo="Ten cuidado."
       ></Contexto>
       <div className="fondoAmarillo">
         <div className="contentMinijuego">
@@ -514,7 +514,6 @@ const Minijuego = (props) => {
             )}
           </button>
         </div>
-
         <Acumulador
           historia={props.historia}
           encontrado1={encontrados[0]}

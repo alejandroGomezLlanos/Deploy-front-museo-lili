@@ -144,9 +144,9 @@ function App() {
             <Route path="/pierden" element={<FeedbackNegativo />} />
             <Route path="/ganan" element={<FeedbackPositivo />} />
 
-            <Route path="/intentaloDenuevo" element={<IntentaloDenuevo />} />
+            <Route path="/intentaloDenuevo" element={<IntentaloDenuevo/>} />
             <Route path="/gananMuseo" element={<GananMuseo historia={historia} />} />
-            <Route path="/museoTabla" element={<MuseoTabla />} />
+            <Route path="/museoTabla" element={<MuseoTabla/>} />
 
             <Route path="/HuaqSymbol1" element={<HuaqSymbol1 historia={historia} />} />
             <Route path="/HuaqSymbol2" element={<HuaqSymbol2 historia={historia} />} />
