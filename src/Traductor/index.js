@@ -73,7 +73,7 @@ function Traductor(props) {
     "simbolo1": "simbolo1",
     "simbolo2": "simbolo2",
     "simbolo3": "simbolo3",
-    "QzmByuQAAAABJRU5ErkJggg==": "simbolo4",
+    "simbolo4": "simbolo4",
     "simbolo5": "simbolo1",
     "simbolo6": "simbolo2",
     "simbolo7": "simbolo3",
