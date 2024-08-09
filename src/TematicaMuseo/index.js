@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./TematicaMuseo.css";
-import video from "./resources/Cuencos1.mp4";
+import video from "./resources/Alcarrazas.mp4";
 import FondoRoles from "./resources/fondo1.png";
 
 function TematicaMuseo() {
