@@ -65,37 +65,6 @@ import { HuaqConf } from "./HuaqConf/index.js";
 function App() {
   const [historia, setHistoria] = useState(1);
 
-  useEffect(() => {
-    const updateHistoria = () => {
-      const lastUpdate = localStorage.getItem("lastUpdate");
-      const lastHistoria = localStorage.getItem("lastHistoria");
-
-      const now = new Date();
-      const oneDay = 24 * 60 * 60 * 1000;
-
-      if (lastUpdate && lastHistoria) {
-        const lastUpdateDate = new Date(parseInt(lastUpdate, 10));
-
-        if (now - lastUpdateDate >= oneDay) {
-          // Han pasado 24 horas, actualizar la historia
-          const newHistoria = (parseInt(lastHistoria, 10) % 5) + 1;
-          localStorage.setItem("lastHistoria", newHistoria);
-          localStorage.setItem("lastUpdate", now.getTime());
-          setHistoria(newHistoria);
-        } else {
-          // Menos de 24 horas, mantener la historia actual
-          setHistoria(parseInt(lastHistoria, 10));
-        }
-      } else {
-        // No hay datos previos, inicializar
-        localStorage.setItem("lastHistoria", 1);
-        localStorage.setItem("lastUpdate", now.getTime());
-        setHistoria(1);
-      }
-    };
-
-    updateHistoria();
-  }, []);
 
   return (
     <div className="App">
