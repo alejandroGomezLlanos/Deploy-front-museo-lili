@@ -85,7 +85,7 @@ function FraseMuseo({ historia }) {
   const [guia, setGuia] = useState(false);
   const [huaquero, setHuaquero] = useState(false);
   const [interprete, setInterprete] = useState(false);
-  const [antropologo, setAntropologo] = useState(true); // modificar este estado cuando el antropologo le unda continuar en su pantalla // SIEMPRE DEBE INICIAR EN FALSO  
+  const [antropologo, setAntropologo] = useState(false); // modificar este estado cuando el antropologo le unda continuar en su pantalla // SIEMPRE DEBE INICIAR EN FALSO  
 
   const [availableWords, setAvailableWords] = useState([]);
   const [pair1Matched, setPair1Matched] = useState(false);
