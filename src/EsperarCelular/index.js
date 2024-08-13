@@ -37,7 +37,7 @@ function EsperarCelular({ historia }) {
     // Limpieza del temporizador cuando el componente se desmonta
     return () => clearTimeout(timer);
   }, []);
-
+  
   const getImagesForHistoria = (historia) => {
     switch (historia) {
       case 1:
@@ -65,10 +65,10 @@ function EsperarCelular({ historia }) {
   return (
     <div>
       <div className="contenedor">
-        <h1 className="title">Viajero espera...</h1>
-        <p className="text12">Observa la tematica del dia</p>
+        <h1 className="title">Viajero, espera...</h1>
+        <p className="text12">Observa la temática del día</p>
         <p className="text12">y no pierdas de vista su</p>
-        <p className="textred">Simbologia...</p>
+        <p className="textred">Simbología...</p>
       </div>
       <div className="fourimg">
         {images.map((src, index) => (

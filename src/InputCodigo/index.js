@@ -117,98 +117,83 @@ function InputCodigo() {
   };
 
   const areFieldsComplete = () => {
-    const nameRegex = /^[a-zA-Z\s]*$/;
-    const idRegex = /^[0-9]+$/;
-
-    // Check if any of the fields is empty
+    const nameRegex = /^[a-zA-Z\s]{3,}$/; // Al menos 3 letras o espacios
+    const idRegex = /^[0-9]{7,10}$/; // Entre 7 y 10 dígitos numéricos
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(com|co)$/;
+  
+    // Verifica si algún campo está vacío
     if (!userData.name || !userData.identification || !userData.email) {
       return false;
     }
-
-    // Check if name contains numbers or special characters
+  
+    // Verifica si el nombre contiene números o caracteres especiales
     if (!nameRegex.test(userData.name)) {
       return false;
     }
-
-    // Check if ID contains anything other than numeric digits
+  
+    // Verifica si la identificación contiene algo que no sean dígitos numéricos
     if (!idRegex.test(userData.identification)) {
       return false;
     }
-
-    // Check if email contains "@" and ".com"
-    if (!userData.email.includes("@") || !(userData.email.endsWith(".com") || userData.email.endsWith(".co"))) {
+  
+    // Verifica si el email tiene un formato válido
+    if (!emailPattern.test(userData.email)) {
       return false;
     }
-
-    // Ensure acceptTerms is checked and either student or visitor is checked
+  
+    // Asegura que acceptTerms esté marcado y que se haya seleccionado estudiante o visitante
     if (!acceptTerms || !(isStudent || isVisitor)) {
       return false;
     }
-
+  
     return true;
   };
-
-  const handleModalInputChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const inputValue = type === "checkbox" ? checked : value;
-    if (name === "student" && checked) {
-      setUserData({ ...userData, student: true, visitor: false });
-    } else if (name === "visitor" && checked) {
-      setUserData({ ...userData, visitor: true, student: false });
-    } else {
-      setUserData({ ...userData, [name]: inputValue });
-    }
-    updateFormComplete();
-  };
-
+  
   const handleValidationErrorName = () => {
     const newErrors = {};
-
-    const namePattern = /^[a-zA-Z]+$/; // Only letters allowed
-
+  
+    const namePattern = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
+  
     if (!namePattern.test(userData.name)) {
-      newErrors.name = "El nombre solo debe contener letras.";
+      newErrors.name = "El nombre solo debe contener letras y espacios.";
+    } else if (userData.name.length < 3) {
+      newErrors.name = "El nombre debe contener al menos 3 letras.";
     } else if (userData.name.length > 30) {
       newErrors.name = "El nombre no puede contener más de 30 caracteres.";
     }
-
+  
     setErrorName(newErrors);
   };
+  
 
   const handleValidationErrorEmail = () => {
     const newErrors = {};
-  
-    // Regular expression pattern checks for a valid email format
+        
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(com|co)$/;
-  
-    if (!userData.email.includes("@")) {
-      newErrors.email = "El email debe contener '@'";
-    } else if (!(userData.email.endsWith(".com") || userData.email.endsWith(".co"))) {
-      newErrors.email = "El email debe terminar en 'gmail.com' o '.co'";
-    } else if (!emailPattern.test(userData.email)) {
+    
+    if (!emailPattern.test(userData.email)) {
       newErrors.email = "Formato de email no válido";
     }
-  
+    
     setErrorEmail(newErrors);
   };
 
   const handleValidationErrorIdentification = () => {
-    const numberPattern = /^[0-9]{1,10}$/; // Only numbers allowed and max length of 10
-    const newErrors = {};
+  const numberPattern = /^[0-9]{7,10}$/; // Only numbers allowed, min length of 7, max length of 10
+  const newErrors = {};
 
-    if (!numberPattern.test(userData.identification)) {
-      if (userData.identification.length > 10) {
-        newErrors.identification =
-          "La identificación no puede tener más de 10 dígitos.";
-      } else {
-        newErrors.identification =
-          "La identificación solo debe contener números.";
-      }
+  if (!numberPattern.test(userData.identification)) {
+    if (userData.identification.length < 7) {
+      newErrors.identification = "La identificación debe tener al menos 7 dígitos.";
+    } else if (userData.identification.length > 10) {
+      newErrors.identification = "La identificación no puede tener más de 10 dígitos.";
+    } else {
+      newErrors.identification = "La identificación solo debe contener números.";
     }
+  }
 
-    setErrorIdentification(newErrors);
-  };
-
+  setErrorIdentification(newErrors);
+};
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -340,7 +325,7 @@ function InputCodigo() {
 
             {userData.identification && (
               <div className="divtxtEscribiendo">
-                <p className="ptxtEscribiendo">D.I o código estudiantil:</p>
+                <p className="ptxtEscribiendo">Identificación o código estudiantil:</p>
               </div>
             )}
 

@@ -85,7 +85,7 @@ function FraseMuseo({ historia }) {
   const [guia, setGuia] = useState(false);
   const [huaquero, setHuaquero] = useState(false);
   const [interprete, setInterprete] = useState(false);
-  const [antropologo, setAntropologo] = useState(false); // modificar este estado cuando el antropologo le unda continuar en su pantalla
+  const [antropologo, setAntropologo] = useState(true); // modificar este estado cuando el antropologo le unda continuar en su pantalla // SIEMPRE DEBE INICIAR EN FALSO  
 
   const [availableWords, setAvailableWords] = useState([]);
   const [pair1Matched, setPair1Matched] = useState(false);
@@ -160,9 +160,9 @@ function FraseMuseo({ historia }) {
 
   useEffect(() => {
     // Establece availableWords según el valor de historia
-    if (historia === 1) {
+    if (historia === 2) {
       setAvailableWords(["rituales", "arte", "alfareros", "tiempo"]);
-    } else if (historia === 2) {
+    } else if (historia === 1) {
       setAvailableWords(["culturas", "formas", "pueblos", "legado"]);
     } else if (historia === 3) {
       setAvailableWords(["obras", "hilos", "historias", "fuente"]);
@@ -415,12 +415,12 @@ function FraseMuseo({ historia }) {
   const handleWordDrop = (word, index, historia) => {
     let pair1, pair2, pair3, pair4;
 
-    if (historia === 1) {
+    if (historia === 2) {
       pair1 = ["rituales", 0];
       pair2 = ["arte", 1];
       pair3 = ["alfareros", 2];
       pair4 = ["tiempo", 3];
-    } else if (historia === 2) {
+    } else if (historia === 1) {
       pair1 = ["culturas", 0];
       pair2 = ["formas", 1];
       pair3 = ["pueblos", 2];
@@ -515,9 +515,9 @@ function FraseMuseo({ historia }) {
       atLeastOnePairFalse
     ) {
       setSentence([null, null, null, null]); // Reset the sentence state
-      if (historia === 1) {
+      if (historia === 2) {
         setAvailableWords(["rituales", "arte", "alfareros", "tiempo"]);
-      } else if (historia === 2) {
+      } else if (historia === 1) {
         setAvailableWords(["culturas", "formas", "pueblos", "legado"]);
       } else if (historia === 3) {
         setAvailableWords(["obras", "hilos", "historias", "fuente"]);
@@ -543,8 +543,6 @@ function FraseMuseo({ historia }) {
     pair4Matched,
   ]);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
     if (
       (!pair1Matched || !pair2Matched || !pair3Matched || !pair4Matched) &&
@@ -552,9 +550,9 @@ function FraseMuseo({ historia }) {
       atLeastOnePairFalse
     ) {
       setSentence([null, null, null, null]); // Reset the sentence state
-      if (historia === 1) {
+      if (historia === 2) {
         setAvailableWords(["rituales", "arte", "alfareros", "tiempo"]);
-      } else if (historia === 2) {
+      } else if (historia === 1) {
         setAvailableWords(["culturas", "formas", "pueblos", "legado"]);
       } else if (historia === 3) {
         setAvailableWords(["obras", "hilos", "historias", "fuente"]);
@@ -633,11 +631,11 @@ function FraseMuseo({ historia }) {
         <div className="complete-the-sentence" style={{ backgroundImage: `url(${fondo})` }}>
 
           <h1 className={`tituloFraseMuseo ${completed ? "green-title" : ""}`}>
-            Completa la frase
+            Mueve las palabras
           </h1>
-          {historia === 1 && (
+          {historia === 2 && (
             <div className="sentence frase1">
-              <p className="txtFrase">Los cuencos </p>
+              <p className="txtFrase">Los cuencos se usan en</p>
 
               {sentence[0] ? (
                 <span className="txtPalabra" key={0} style={txtPalabraStyle}>
@@ -651,7 +649,7 @@ function FraseMuseo({ historia }) {
                   completed={completed}
                 />
               )}
-              <p className="txtFrase">nos revelan </p>
+              <p className="txtFrase">que nos revelan </p>
               <p className="txtFrase">la profunda conexión entre el </p>
               {sentence[1] ? (
                 <span className="txtPalabra" key={1} style={txtPalabraStyle}>
@@ -697,7 +695,7 @@ function FraseMuseo({ historia }) {
               <p className="txtFrase">.</p>
             </div>
           )}
-          {historia === 2 && (
+          {historia === 1 && (
             <div className="sentence frase2">
               <p className="txtFrase">Las alcarrazas, testigos de antiguas </p>
 

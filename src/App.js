@@ -78,6 +78,7 @@ function App() {
             <Route path="/*" element={<p>no encontrado</p>} />
             <Route path="/" element={<InputCodigo />} />
 
+            <Route path="/timetest" element={<TimeTest />} />
             <Route path="/museo" element={<PantallaMuseo />} />
 
             <Route path="/MuseoInduccion" element={<MuseoInduccion />} />
@@ -94,7 +95,6 @@ function App() {
             <Route path="/introduccion" element={<Picker />} />
             <Route path="/introduccion/:slug" element={<Introduccion />} />
 
-            <Route path="/TestFinalizada" element={<TestFinalizada />} />
             <Route path="/seleccionCargando" element={<SeleccionCargando />} />
 
             <Route path="/TablaPuntuacion" element={<TablaPuntuacion />} />
