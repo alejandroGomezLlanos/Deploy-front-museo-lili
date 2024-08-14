@@ -236,9 +236,9 @@ function Bloqueo(props) {
   function buscarAnagramas(historia) {
     let nuevosAnagramas = [];
 
-    if (historia === 1) {
+    if (historia === 2) {
       nuevosAnagramas = ["tuariles", "tear", "alfarosre", "potiem"];
-    } else if (historia === 2) {
+    } else if (historia === 1) {
       nuevosAnagramas = ["turascul", "masfor", "blospue", "gadole"];
     } else if (historia === 3) {
       nuevosAnagramas = ["braso", "loshi", "toriahis", "tefuen"];
