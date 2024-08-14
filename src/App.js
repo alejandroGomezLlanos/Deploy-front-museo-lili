@@ -84,7 +84,8 @@ function App() {
             <Route path="/MuseoInduccion" element={<MuseoInduccion />} />
             <Route path="/animacionMuseo" element={<AnimacionMuseo />} />
             <Route path="/qrMuseo" element={<QrMuseo />} />
-            <Route path="/tematicaMuseo" element={<TematicaMuseo />} />
+            <Route path="/tematicaMuseo" element={<TematicaMuseo historia={historia}/>} />
+            <Route path="/tematicaMuseo2" element={<TematicaMuseo2 historia={historia}/>} />
             <Route path="/rolesMuseo" element={<RolesMuseo />} />
             <Route path="/estadoMuseo" element={<EstadoMuseo />} />
             <Route path="/revisarCelular" element={<RevisarCelular />} />

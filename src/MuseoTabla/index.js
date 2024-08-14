@@ -55,7 +55,7 @@ function MuseoTabla() {
 
   const handleContinuarClick = () => {
     // Redirigir a la página /museoTablaMejorT al hacer clic en el botón "Continuar"
-    navigate("/museo");
+    navigate("/TematicaMuseo2");
   };
 
   return (
