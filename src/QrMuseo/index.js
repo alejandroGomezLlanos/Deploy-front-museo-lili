@@ -120,7 +120,7 @@ function QrMuseo() {
               <>
                 <QRCode
                   value="https://smigc.vercel.app/"
-                  size={300}
+                  size={350}
                   bgColor="#c98686"
                   fgColor="#000"
                 />
