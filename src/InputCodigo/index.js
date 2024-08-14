@@ -117,7 +117,7 @@ function InputCodigo() {
   };
 
   const areFieldsComplete = () => {
-    const nameRegex = /^[a-zA-Z\s]{3,}$/; // Al menos 3 letras o espacios
+    const nameRegex = /^[\p{L}\s]{3,}$/u; // Al menos 3 letras o espacios
     const idRegex = /^[0-9]{7,10}$/; // Entre 7 y 10 dígitos numéricos
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.(com|co)$/;
   
@@ -152,7 +152,7 @@ function InputCodigo() {
   const handleValidationErrorName = () => {
     const newErrors = {};
   
-    const namePattern = /^[a-zA-Z\s]+$/; // Only letters and spaces allowed
+    const namePattern = /^[\p{L}\s]+$/u; // Only letters and spaces allowed
   
     if (!namePattern.test(userData.name)) {
       newErrors.name = "El nombre solo debe contener letras y espacios.";
