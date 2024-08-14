@@ -15,28 +15,28 @@ const roles = [
   {
     titulo: "Guía",
     descripcion:
-      "Deberás observar detalladamente el mapa e indicarle al Huaquero, dónde debe buscar los misteriosos símbolos que aparecen en el mapa.",
+      "Deberás observar detalladamente el mapa.",
     logo: GuiaLogo,
     audio: NarracionGuia,
   },
   {
     titulo: "Huaquero",
     descripcion:
-      "Con ayuda de la cámara de tu dispositivo, escanea las esculturas y descubre los símbolos misteriosos.",
+      "Escanea el código QR.",
     logo: HuaqueroLogo,
     audio: NarracionHuaquero,
   },
   {
     titulo: "Intérprete",
     descripcion:
-      "Utiliza los símbolos que el Huaquero encuentre para traducirlos. Encuentra sus pares para revelar su significado.",
+      "Encuentra los pares.",
     logo: InterpreteLogo,
     audio: NarracionInterprete,
   },
   {
     titulo: "Antropólogo",
     descripcion:
-      "Resuelve el anagrama, ordena las palabras para desbloquear el código secreto.",
+      "Resuelve el anagrama.",
     logo: AntropologoLogo,
     audio: NarracionAntropologo,
   },
