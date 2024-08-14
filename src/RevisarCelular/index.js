@@ -12,7 +12,7 @@ function RevisarCelular() {
     try {
       const response = await axios.patch(
         "https://testdeploy-production-9d97.up.railway.app/time",
-        { time: 600 }
+        { time: 900 }
       );
       console.log("Time updated successfully to 600");
       return true;
